@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unterstützen – Diesen Raum mittragen</title>
+  <meta name="description" content="Wenn dich dieser Raum nährt, kannst du ihn unterstützen und seine Offenheit für andere mit ermöglichen.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Site Header / Navigation -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a href="index.html" class="site-nav__link">Startseite</a>
+      <a href="du-darfst-waehlen.html" class="site-nav__link">Du darfst wählen</a>
+      <a href="atlas.html" class="site-nav__link">Bewusstseins-Atlas</a>
+      <a href="gesamtbild.html" class="site-nav__link">Lebendiges Gesamtbild</a>
+      <a href="emotions.html" class="site-nav__link">Emotions-Atlas</a>
+      <a href="schutz.html" class="site-nav__link">Wenn Bewegung auf Schutz trifft</a>
+      <a href="unterstuetzen.html" class="site-nav__link site-nav__link--active">Unterstützen</a>
+    </nav>
+
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Menü öffnen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Menü schließen">✕</button>
+
+    <a href="index.html" class="mobile-nav__link">Startseite</a>
+    <a href="du-darfst-waehlen.html" class="mobile-nav__link">Du darfst wählen</a>
+    <a href="atlas.html" class="mobile-nav__link">Bewusstseins-Atlas</a>
+    <a href="gesamtbild.html" class="mobile-nav__link">Lebendiges Gesamtbild</a>
+    <a href="emotions.html" class="mobile-nav__link">Emotions-Atlas</a>
+    <a href="schutz.html" class="mobile-nav__link">Wenn Bewegung auf Schutz trifft</a>
+    <a href="unterstuetzen.html" class="mobile-nav__link site-nav__link--active">Unterstützen</a>
+  </div>
+
+
+  <!-- Subtle background shapes -->
+  <div class="bg-shape bg-shape--1" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape--2" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape--3" aria-hidden="true"></div>
+
+  <main>
+    <div class="support-page animate-in">
+      <h1 class="support-title">Unterstützen</h1>
+      
+      <div class="support-grid">
+        <div class="support-text">
+          <p>
+            Vielleicht nährt dich dieser Raum.
+          </p>
+          <p>
+            Vielleicht hat er dir einen Moment von Ruhe geschenkt,<br>
+            eine neue Sicht,<br>
+            oder einfach ein leises Wiedererkennen.
+          </p>
+          <p>
+            Wenn in dir der Wunsch entsteht,<br>
+            etwas zurückzugeben,<br>
+            darf auch das seinen Platz haben.
+          </p>
+          <p>
+            Du kannst diesen Raum unterstützen,<br>
+            ihn mittragen,<br>
+            oder einfach ein kleines Zeichen der Wertschätzung dalassen.
+          </p>
+          <p>
+            Hinter diesem Raum stehe ich —<br>
+            ein Mensch mit Ideen,<br>
+            mit Freude am Erschaffen<br>
+            und dem Wunsch, noch mehr ins Leben zu bringen.
+          </p>
+          <p>
+            Wenn du auch mich auf diesem Weg unterstützen möchtest,<br>
+            freue ich mich.
+          </p>
+          <p>
+            Dieser Raum bleibt frei zugänglich für alle.
+          </p>
+        </div>
+        
+        <div class="support-widget animate-in animate-in--delay-1" aria-label="Ko-Fi Widget">
+          <iframe id='kofiframe' src='https://ko-fi.com/ichbinda/?hidefeed=true&widget=true&embed=true&preview=true' style='border:none;width:100%;padding:4px;background:#f9f9f9;' height='712' title='ichbinda'></iframe>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer class="site-footer">
+    <a href="impressum.html">Impressum</a>
+    <span class="site-footer__sep">·</span>
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger-btn');
+      var overlay = document.getElementById('mobile-nav-overlay');
+      var closeBtn = document.getElementById('mobile-nav-close');
+      function toggleMenu() {
+        btn.classList.toggle('is-open');
+        overlay.classList.toggle('is-open');
+        document.body.style.overflow = overlay.classList.contains('is-open') ? 'hidden' : '';
+      }
+      if (btn && overlay) {
+        btn.addEventListener('click', toggleMenu);
+        if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+      }
+    })();
+  </script>
+</body>
+</html>

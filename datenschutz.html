@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutz</title>
+  <meta name="description" content="Datenschutzerklärung">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a href="index.html" class="site-nav__link">Startseite</a>
+      <a href="du-darfst-waehlen.html" class="site-nav__link">Du darfst wählen</a>
+      <a href="atlas.html" class="site-nav__link">Bewusstseins-Atlas</a>
+      <a href="gesamtbild.html" class="site-nav__link">Lebendiges Gesamtbild</a>
+      <a href="emotions.html" class="site-nav__link">Emotions-Atlas</a>
+      <a href="schutz.html" class="site-nav__link">Wenn Bewegung auf Schutz trifft</a>
+      <a href="unterstuetzen.html" class="site-nav__link">Unterstützen</a>
+    </nav>
+
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Menü öffnen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Menü schließen">✕</button>
+
+    <a href="index.html" class="mobile-nav__link">Startseite</a>
+    <a href="du-darfst-waehlen.html" class="mobile-nav__link">Du darfst wählen</a>
+    <a href="atlas.html" class="mobile-nav__link">Bewusstseins-Atlas</a>
+    <a href="gesamtbild.html" class="mobile-nav__link">Lebendiges Gesamtbild</a>
+    <a href="emotions.html" class="mobile-nav__link">Emotions-Atlas</a>
+    <a href="schutz.html" class="mobile-nav__link">Wenn Bewegung auf Schutz trifft</a>
+    <a href="unterstuetzen.html" class="mobile-nav__link">Unterstützen</a>
+  </div>
+
+  <!-- Subtle background shapes -->
+  <div class="bg-shape bg-shape--1" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape--2" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape--3" aria-hidden="true"></div>
+
+  <main>
+    <section class="legal-page animate-in">
+      <h1 class="legal-page__title">Datenschutz</h1>
+      <div class="legal-page__content">
+        <p>Diese Webseite erhebt keine personenbezogenen Daten.</p>
+
+        <p>Es werden keine Tracking- oder Analyse-Tools verwendet.<br>
+        Es werden keine Cookies zu Analyse- oder Marketingzwecken gesetzt.</p>
+
+        <p>Beim Aufruf der Seite können durch den Hosting-Anbieter automatisch technische Daten erfasst werden (z. B. IP-Adresse, Zeitpunkt des Zugriffs).<br>
+        Diese Daten dienen ausschliesslich der Bereitstellung und Sicherheit der Webseite und werden nicht von mir ausgewertet.</p>
+
+        <p>Es findet keine Weitergabe von Daten an Dritte statt.</p>
+
+        <p>Wenn du mich kontaktierst (z. B. per E-Mail), werden deine Angaben nur zur Bearbeitung deiner Anfrage verwendet.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="impressum.html">Impressum</a>
+    <span class="site-footer__sep">·</span>
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger-btn');
+      var overlay = document.getElementById('mobile-nav-overlay');
+      var closeBtn = document.getElementById('mobile-nav-close');
+      function toggleMenu() {
+        btn.classList.toggle('is-open');
+        overlay.classList.toggle('is-open');
+        document.body.style.overflow = overlay.classList.contains('is-open') ? 'hidden' : '';
+      }
+      if (btn && overlay) {
+        btn.addEventListener('click', toggleMenu);
+        if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Du darfst wählen – Ein Zugang zu deinem inneren Erleben</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Scoped styles for Variante B */
+    .variante-b {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--space-xl) var(--space-md) 10rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    .variante-title {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--color-text);
+      margin-bottom: var(--space-lg);
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    .variante-intro {
+      font-size: 1.25rem;
+      line-height: 1.8;
+      color: var(--color-text-light);
+      text-align: center;
+      margin-bottom: var(--space-md);
+    }
+
+    /* Sub Navigation */
+    .variante-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      margin-bottom: var(--space-xl);
+      padding: var(--space-md) 0;
+    }
+
+    .variante-nav__link {
+      color: var(--color-text-faint);
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      transition: color var(--transition-gentle);
+    }
+
+    .variante-nav__link:hover {
+      color: var(--color-text);
+    }
+
+    /* Reading Sections */
+    .reading-section {
+      margin-bottom: calc(var(--space-xl) * 1.5);
+    }
+
+    .reading-section__title {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      color: var(--color-text);
+      margin-bottom: var(--space-md);
+      font-weight: 300;
+    }
+
+    .reading-section__content {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: var(--color-text-light);
+      max-width: 700px;
+    }
+
+    /* Rhythmic Text Flow */
+    .text-content-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem; /* generous vertical spacing between thought groups */
+    }
+
+    .text-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem; /* smaller spacing within a thought group */
+    }
+
+    .quote-text {
+      margin: 0.5rem 0 0.5rem 1.5rem;
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: var(--color-text-faint);
+      line-height: 1.8;
+    }
+
+    .quote-connector {
+      margin: 1.2rem 0;
+      color: var(--color-text-light);
+      font-size: 1.15rem;
+    }
+
+    /* Scroll smoothing */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Site Header / Navigation -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Hauptnavigation">
+      <a href="index.html" class="site-nav__link">Startseite</a>
+      <a href="du-darfst-waehlen.html" class="site-nav__link site-nav__link--active">Du darfst wählen</a>
+      <a href="atlas.html" class="site-nav__link">Bewusstseins-Atlas</a>
+      <a href="gesamtbild.html" class="site-nav__link">Lebendiges Gesamtbild</a>
+      <a href="emotions.html" class="site-nav__link">Emotions-Atlas</a>
+      <a href="schutz.html" class="site-nav__link">Wenn Bewegung auf Schutz trifft</a>
+      <a href="unterstuetzen.html" class="site-nav__link">Unterstützen</a>
+    </nav>
+
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Menü öffnen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Menü schließen">✕</button>
+
+    <a href="index.html" class="mobile-nav__link">Startseite</a>
+    <a href="du-darfst-waehlen.html" class="mobile-nav__link site-nav__link--active">Du darfst wählen</a>
+    <a href="atlas.html" class="mobile-nav__link">Bewusstseins-Atlas</a>
+    <a href="gesamtbild.html" class="mobile-nav__link">Lebendiges Gesamtbild</a>
+    <a href="emotions.html" class="mobile-nav__link">Emotions-Atlas</a>
+    <a href="schutz.html" class="mobile-nav__link">Wenn Bewegung auf Schutz trifft</a>
+    <a href="unterstuetzen.html" class="mobile-nav__link">Unterstützen</a>
+  </div>
+
+
+  <!-- Subtle background shapes -->
+  <div class="bg-shape bg-shape--1" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape--2" aria-hidden="true"></div>
+  <div class="bg-shape bg-shape--3" aria-hidden="true"></div>
+
+  <!-- Note: Page layout class is mostly used for full h-vh pages. Here we let it scroll normally -->
+  <main>
+    <div class="variante-b animate-in">
+      <h1 class="variante-title">Du darfst wählen</h1>
+      
+      <div class="variante-intro">
+        Dies ist ein Raum, der zeigt,<br>
+        dass du nicht an das gebunden bist, was du erkennst.<br><br>
+        Du kannst Muster loslassen<br>
+        und neue Möglichkeiten zulassen –<br>
+        ganz ohne Druck, ganz in deinem Tempo.
+      </div>
+
+      <nav class="variante-nav" aria-label="Seiten-Navigation">
+        <a href="#einleitung" class="variante-nav__link">Einleitung</a>
+        <a href="#entkopplung" class="variante-nav__link">Entkopplung</a>
+        <a href="#erlaubnis" class="variante-nav__link">Erlaubnis</a>
+        <a href="#beginnen" class="variante-nav__link">Wie beginnen</a>
+        <a href="#beispiel" class="variante-nav__link">Beispiel</a>
+        <a href="#verbindung" class="variante-nav__link">Verbindung zu anderen Räumen</a>
+      </nav>
+
+      <section id="einleitung" class="reading-section">
+        <h2 class="reading-section__title">Einleitung</h2>
+        <div class="reading-section__content text-content-flow">
+          <div class="text-group">
+            <p>Du erkennst manchmal etwas in dir.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Ein Muster.<br>
+            Eine Reaktion.<br>
+            Eine Art zu fühlen oder zu denken.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Und oft entsteht daraus ein Gefühl wie:</p>
+            <div class="quote-text">
+              „So bin ich eben“
+            </div>
+            <p class="quote-connector">oder</p>
+            <div class="quote-text">
+              „Das ist einfach so“
+            </div>
+          </div>
+          
+          <div class="text-group">
+            <p>Aber das ist nicht die ganze Wahrheit.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Nur weil du etwas erkennst,<br>
+            bedeutet das nicht,<br>
+            dass du daran gebunden bleiben musst.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="entkopplung" class="reading-section">
+        <h2 class="reading-section__title">Entkopplung</h2>
+        <div class="reading-section__content text-content-flow">
+          <div class="text-group">
+            <p>Entkopplung bedeutet:</p>
+          </div>
+          
+          <div class="text-group">
+            <p>dass du eine Verbindung lockern kannst,<br>
+            die sich im Laufe deines Lebens gebildet hat.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Ein Gefühl,<br>
+            ein Gedanke,<br>
+            ein Verhalten<br>
+            war vielleicht einmal sinnvoll.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Vielleicht hat es dich getragen.<br>
+            Vielleicht hat es dir geholfen,<br>
+            mit etwas umzugehen.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Und genau deshalb ist es da.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Entkopplung heißt nicht,<br>
+            dass dieses Muster falsch war.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Es heißt nur:</p>
+            <div class="quote-text">
+              Du musst es nicht weiter festhalten.
+            </div>
+          </div>
+          
+          <div class="text-group">
+            <p>Die Situation kann weiterhin auftreten.<br>
+            Das Gefühl kann wiederkommen.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Aber die Art,<br>
+            wie du innerlich damit verbunden bist,<br>
+            darf sich verändern.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="erlaubnis" class="reading-section">
+        <h2 class="reading-section__title">Erlaubnis</h2>
+        <div class="reading-section__content text-content-flow">
+          <div class="text-group">
+            <p>Erlaubnis bedeutet:</p>
+          </div>
+          
+          <div class="text-group">
+            <p>dass du dich für etwas Neues öffnen kannst.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Nicht indem du das Alte verdrängst.<br>
+            Nicht indem du dich zwingst.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Sondern indem du wählst:</p>
+            <div class="quote-text">
+              „So darf es auch sein.“
+            </div>
+          </div>
+          
+          <div class="text-group">
+            <p>Ein neuer Umgang.<br>
+            Eine neue Haltung.<br>
+            Ein neuer innerer Raum.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Das Alte darf weiterhin existieren.<br>
+            Aber es bestimmt nicht mehr allein,<br>
+            wie du dich erlebst.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="beginnen" class="reading-section">
+        <h2 class="reading-section__title">Wie beginnen</h2>
+        <div class="reading-section__content text-content-flow">
+          <div class="text-group">
+            <p>Vielleicht fragst du dich:</p>
+            <div class="quote-text">
+              „Wie mache ich das?“
+            </div>
+          </div>
+          
+          <div class="text-group">
+            <p>Das Schöne ist:<br>
+            es ist nicht kompliziert.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Du brauchst keine Technik.<br>
+            Kein Wissen.<br>
+            Keine Vorbereitung.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Ein paar Minuten reichen.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Nimm dir einen Moment Zeit.<br>
+            Setz dich kurz hin.<br>
+            Und komm bei dir an.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Du kannst deinen Körper wahrnehmen.<br>
+            Deinen Atem.<br>
+            Oder einfach den Raum um dich herum.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Und dann flüstere dir ganz leise:</p>
+            <div class="quote-text">
+              „Ich bin da.<br>
+              Ich bin sicher.“
+            </div>
+          </div>
+          
+          <div class="text-group">
+            <p>Und nimm wahr,<br>
+            was in deinem Körper geschieht.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Vielleicht wird dein Körper etwas ruhiger.<br>
+            Vielleicht ändert sich dein Atem.<br>
+            Vielleicht passiert scheinbar nichts.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Alles davon ist in Ordnung.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Wenn dein Körper ein wenig weicher wird<br>
+            oder nicht mehr im Alarm ist,</p>
+          </div>
+          
+          <div class="text-group">
+            <p>ist das ein sehr guter Moment.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Dann kannst du beginnen,<br>
+            bewusst mit dir zu sprechen.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Zum Beispiel:</p>
+            <div class="quote-text">
+              „Ich muss das gar nicht.“
+            </div>
+            <p class="quote-connector">oder</p>
+            <div class="quote-text">
+              „Ich darf das loslassen.“
+            </div>
+          </div>
+          
+          <div class="text-group">
+            <p>Und wenn du möchtest:</p>
+            <div class="quote-text">
+              „Ich darf …“
+            </div>
+          </div>
+          
+          <div class="text-group">
+            <p>Optional auch:</p>
+            <div class="quote-text">
+              „… ohne …“
+            </div>
+          </div>
+          
+          <div class="text-group">
+            <p>z. B.:</p>
+            <div class="quote-text">
+              „Ich darf Unterstützung empfangen,<br>
+              ohne mich erklären zu müssen.“
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="beispiel" class="reading-section">
+        <h2 class="reading-section__title">Beispiel</h2>
+        <div class="reading-section__content text-content-flow">
+          <div class="text-group">
+            <p>Vielleicht bemerkst du:</p>
+            <div class="quote-text">
+              „Ich habe das Gefühl, ich muss mich rechtfertigen“
+            </div>
+          </div>
+          
+          <div class="text-group">
+            <p>Dann kannst du in Ruhe sagen:</p>
+            <div class="quote-text">
+              „Ich muss mich gar nicht rechtfertigen.“<br>
+              „Ich darf einfach da sein,<br>
+              ohne mich erklären zu müssen.“
+            </div>
+          </div>
+          
+          <div class="text-group">
+            <p>Und dann lässt du es wirken.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Du musst nichts überprüfen.<br>
+            Nichts erzwingen.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="verbindung" class="reading-section">
+        <h2 class="reading-section__title">Verbindung zu den anderen Räumen</h2>
+        <div class="reading-section__content text-content-flow">
+          <div class="text-group">
+            <p>In den anderen Bereichen dieser Seite<br>
+            findest du bereits viele Beispiele:</p>
+          </div>
+          
+          <div class="text-group">
+            <p>– Entkopplungen<br>
+            – Erlaubnisse<br>
+            – neue innere Richtungen</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Du kannst sie nutzen.<br>
+            Oder deine eigenen finden.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Denn das Entscheidende ist nicht der Satz.</p>
+          </div>
+          
+          <div class="text-group">
+            <p>Sondern:</p>
+          </div>
+          
+          <div class="text-group">
+            <p>dass du beginnst, bewusst zu wählen,<br>
+            wie du dir selbst begegnest.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <a href="impressum.html">Impressum</a>
+    <span class="site-footer__sep">·</span>
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger-btn');
+      var overlay = document.getElementById('mobile-nav-overlay');
+      var closeBtn = document.getElementById('mobile-nav-close');
+      function toggleMenu() {
+        btn.classList.toggle('is-open');
+        overlay.classList.toggle('is-open');
+        document.body.style.overflow = overlay.classList.contains('is-open') ? 'hidden' : '';
+      }
+      if (btn && overlay) {
+        btn.addEventListener('click', toggleMenu);
+        if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+      }
+    })();
+  </script>
+</body>
+
+</html>

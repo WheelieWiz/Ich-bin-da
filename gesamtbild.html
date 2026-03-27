@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebendiges Gesamtbild – Zusammenhänge im inneren Erleben</title>
+    <meta name="description" content="Ein Raum, der Zusammenhänge sichtbar macht. Wie innere Zustände, Bewegung und Wahrnehmung miteinander wirken.">
+    <link rel="stylesheet" href="style.css?v=2.8">
+</head>
+
+<body>
+
+    <!-- Site Header / Navigation -->
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Hauptnavigation">
+            <a href="index.html" class="site-nav__link">Startseite</a>
+            <a href="du-darfst-waehlen.html" class="site-nav__link">Du darfst wählen</a>
+            <a href="atlas.html" class="site-nav__link">Bewusstseins-Atlas</a>
+            <a href="gesamtbild.html" class="site-nav__link site-nav__link--active">Lebendiges Gesamtbild</a>
+            <a href="emotions.html" class="site-nav__link">Emotions-Atlas</a>
+            <a href="schutz.html" class="site-nav__link">Wenn Bewegung auf Schutz trifft</a>
+            <a href="unterstuetzen.html" class="site-nav__link">Unterstützen</a>
+        </nav>
+
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Menü öffnen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    </header>
+
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Menü schließen">✕</button>
+
+    <a href="index.html" class="mobile-nav__link">Startseite</a>
+    <a href="du-darfst-waehlen.html" class="mobile-nav__link">Du darfst wählen</a>
+    <a href="atlas.html" class="mobile-nav__link">Bewusstseins-Atlas</a>
+    <a href="gesamtbild.html" class="mobile-nav__link site-nav__link--active">Lebendiges Gesamtbild</a>
+    <a href="emotions.html" class="mobile-nav__link">Emotions-Atlas</a>
+    <a href="schutz.html" class="mobile-nav__link">Wenn Bewegung auf Schutz trifft</a>
+    <a href="unterstuetzen.html" class="mobile-nav__link">Unterstützen</a>
+  </div>
+
+
+    <!-- Subtle background shapes -->
+    <div class="bg-shape bg-shape--1" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape--2" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape--3" aria-hidden="true"></div>
+
+    <main class="page">
+        <div class="atlas-layout" id="gesamtbild-layout">
+
+            <!-- LEFT: Bilder Mosaic -->
+            <section class="bilder-area" id="bilder-area">
+
+                <!-- Back button (hidden by default, shown in detail view) -->
+                <button class="bilder-back" id="bilder-back" aria-label="Zurück zur Übersicht">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+
+                <!-- Mosaic Grid -->
+                <div class="bilder-mosaic" id="bilder-mosaic">
+
+                    <!-- Row 1: 3 cards -->
+                    <div class="bilder-card" data-bild="bild-1" role="button" tabindex="0" aria-label="Der tragende Boden öffnen">
+                        <h3 class="bilder-card__title">Der tragende Boden</h3>
+                        <div class="bilder-card__image">
+                            <img src="images/bild-1.png" alt="Der tragende Boden" class="bilder-card__img">
+                        </div>
+                        <p class="bilder-card__caption">
+                            Was dieses Bild trägt:<br>
+                            Boden und Wurzeln · Würdigkeit · Sicherheit · Zugehörigkeit · Selbstbeziehung · Liebe
+                        </p>
+                    </div>
+
+                    <div class="bilder-card" data-bild="bild-2" role="button" tabindex="0" aria-label="Die innere Aufrichtung öffnen">
+                        <h3 class="bilder-card__title">Die innere Aufrichtung</h3>
+                        <div class="bilder-card__image">
+                            <img src="images/bild-2.png" alt="Die innere Aufrichtung" class="bilder-card__img">
+                        </div>
+                        <p class="bilder-card__caption">
+                            Was dieses Bild trägt:<br>
+                            Stamm und Aufrichtung · Identität · Selbstbeziehung · Freiheit · Stimmigkeit
+                        </p>
+                    </div>
+
+                    <div class="bilder-card" data-bild="bild-3" role="button" tabindex="0" aria-label="Die sichtbare Entfaltung öffnen">
+                        <h3 class="bilder-card__title">Die sichtbare Entfaltung</h3>
+                        <div class="bilder-card__image">
+                            <img src="images/bild-3.png" alt="Die sichtbare Entfaltung" class="bilder-card__img">
+                        </div>
+                        <p class="bilder-card__caption">
+                            Was dieses Bild trägt:<br>
+                            Krone und Ausdruck · Leichtigkeit · Vertrauen · Gelassenheit · Kreativität · Fülle
+                        </p>
+                    </div>
+
+                    <!-- Row 2: 2 cards (centered) -->
+                    <div class="bilder-card" data-bild="bild-4" role="button" tabindex="0" aria-label="Das innere Wetter öffnen">
+                        <h3 class="bilder-card__title">Das innere Wetter</h3>
+                        <div class="bilder-card__image">
+                            <img src="images/bild-4.png" alt="Das innere Wetter" class="bilder-card__img">
+                        </div>
+                        <p class="bilder-card__caption">
+                            Was dieses Bild trägt:<br>
+                            Himmel und Wetter · Emotionen · Grundbewegungen · Wandel · Berührung · Übergang
+                        </p>
+                    </div>
+
+                    <div class="bilder-card" data-bild="bild-5" role="button" tabindex="0" aria-label="Das leise Neuwerden öffnen">
+                        <h3 class="bilder-card__title">Das leise Neuwerden</h3>
+                        <div class="bilder-card__image">
+                            <img src="images/bild-5.png" alt="Das leise Neuwerden" class="bilder-card__img">
+                        </div>
+                        <p class="bilder-card__caption">
+                            Was dieses Bild trägt:<br>
+                            Licht und neue Triebe · Wahrnehmung · Stimmigkeit · Ideen · Hoffnung · Neugier
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- RIGHT: Text Container -->
+            <aside class="text-column" id="gesamtbild-text-container">
+
+                <!-- ====== INTRO VIEW (default) ====== -->
+                <div class="topic-view topic-view--active" data-view="intro">
+                    <h2 class="text-column__title">Lebendiges Gesamtbild</h2>
+
+                    <div class="topic-scroll">
+                        <div class="text-column__body">
+                            <p>Diese Seite zeigt keine Konzepte.<br>
+                                Sie zeigt Bilder.</p>
+
+                            <p>Nicht als Erklärung,<br>
+                                sondern als Möglichkeit,<br>
+                                inneres Erleben zu sehen,<br>
+                                ohne es zerlegen zu müssen.</p>
+
+                            <p>Jedes Bild ist eine Perspektive.<br>
+                                Ein Ausschnitt.<br>
+                                Ein lebendiger Ausdruck dessen,<br>
+                                was in dir bereits geschieht.</p>
+
+                            <p>Du musst nichts verstehen.<br>
+                                Du musst nichts richtig machen.</p>
+
+                            <p>Du kannst schauen.<br>
+                                Spüren.<br>
+                                Wiedererkennen.</p>
+
+                            <p>Und vielleicht bemerken:</p>
+
+                            <p>Dass vieles bereits da ist,<br>
+                                ohne dass du es herstellen musst.</p>
+
+                            <p>Klicke auf ein Bild,<br>
+                                und lass dich ein Stück begleiten.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ====== BILD-1 VIEW ====== -->
+                <div class="topic-view" data-view="bild-1">
+                    <h2 class="text-column__title">Der tragende Boden</h2>
+
+                    <!-- Tabs -->
+                    <nav class="topic-tabs" aria-label="Bild-Tabs">
+                        <button class="topic-tab topic-tab--active" data-tab="lebendigesbild">Lebendiges Bild</button>
+                        <button class="topic-tab" data-tab="perspektiven">Perspektiven</button>
+                        <button class="topic-tab" data-tab="entkopplung">Entkopplung</button>
+                    </nav>
+
+                    <!-- Scrollable tab content area -->
+                    <div class="topic-scroll">
+
+                        <!-- Tab: Lebendiges Bild -->
+                        <div class="tab-content tab-content--active" data-tab-content="lebendigesbild">
+                            <div class="text-column__body">
+                                <p>Stell dir einen Baum vor.</p>
+
+                                <p>Nicht den Teil, den man sofort sieht,<br>
+                                    sondern das, was ihn trägt.</p>
+
+                                <p>Unter der Oberfläche liegt ein Boden,<br>
+                                    der nichts fordert<br>
+                                    und nichts verhandelt.</p>
+
+                                <p>Er ist einfach da.</p>
+
+                                <p>Die Wurzeln greifen nicht,<br>
+                                    um etwas zu verdienen,<br>
+                                    sondern weil sie sich ausstrecken dürfen.</p>
+
+                                <p>Sie wachsen in etwas hinein,<br>
+                                    das sie längst hält.</p>
+
+                                <p>Hier zeigt sich Würdigkeit.<br>
+                                    Nicht als Ergebnis,<br>
+                                    sondern als Boden.</p>
+
+                                <p>Etwas darf da sein,<br>
+                                    bevor es sich beweist.</p>
+
+                                <p>Hier zeigt sich Sicherheit.<br>
+                                    Nicht als Kontrolle,<br>
+                                    sondern als Verwurzelung.</p>
+
+                                <p>Der Halt kommt nicht davon,<br>
+                                    dass alles stabil ist,<br>
+                                    sondern davon,<br>
+                                    dass etwas trägt.</p>
+
+                                <p>Hier zeigt sich Zugehörigkeit.<br>
+                                    Der Baum steht nicht außerhalb des Lebens.</p>
+
+                                <p>Er ist bereits Teil davon.</p>
+
+                                <p>Er gehört nicht dazu,<br>
+                                    weil er etwas erfüllt,<br>
+                                    sondern weil er ist.</p>
+
+                                <p>Und mitten darin liegt die Selbstbeziehung.</p>
+
+                                <p>Nicht sichtbar wie ein Ast,<br>
+                                    aber spürbar in der Art,<br>
+                                    wie der Baum sich hält<br>
+                                    oder fallen lässt.</p>
+
+                                <p>Selbstbeziehung ist hier nicht das,<br>
+                                    was der Baum über sich denkt.</p>
+
+                                <p>Sondern wie er im Boden ruht,<br>
+                                    auch wenn es still ist.</p>
+
+                                <p>Und durch alles hindurch<br>
+                                    liegt Liebe.</p>
+
+                                <p>Nicht als Gefühl,<br>
+                                    das kommt und geht.</p>
+
+                                <p>Sondern als Raum,<br>
+                                    der nicht ablehnt.</p>
+
+                                <p>Als ein stilles Ja<br>
+                                    zu dem, was da ist.</p>
+
+                                <p>Wenn du dieses Bild anschaust,<br>
+                                    kannst du vielleicht bemerken:</p>
+
+                                <p>Der Boden fragt nicht,<br>
+                                    ob du bereit bist.</p>
+
+                                <p>Er trägt.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Perspektiven (Accordion) -->
+                        <div class="tab-content" data-tab-content="perspektiven">
+                            <div class="text-column__body">
+
+                                <!-- Accordion: Die Quelle -->
+                                <div class="perspektive-panel" data-panel="quelle">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🜁</span>
+                                        <span class="perspektive-panel__title">Die Quelle</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Ich sehe dich.</p>
+
+                                        <p>Nicht das, was du geworden bist.<br>
+                                            Nicht das, was du noch werden willst.</p>
+
+                                        <p>Ich sehe dich,<br>
+                                            bevor du etwas hinzufügst.</p>
+
+                                        <p>Und dort bist du vollständig.</p>
+
+                                        <p>Du bist nicht würdig,<br>
+                                            weil du etwas richtig gemacht hast.</p>
+
+                                        <p>Du bist würdig,<br>
+                                            weil du bist.</p>
+
+                                        <p>Du bist nicht geliebt,<br>
+                                            weil du etwas erfüllst.</p>
+
+                                        <p>Du bist geliebt,<br>
+                                            weil du da bist.</p>
+
+                                        <p>Du gehörst nicht dazu,<br>
+                                            weil du deinen Platz findest.</p>
+
+                                        <p>Du gehörst dazu,<br>
+                                            weil du nie außerhalb warst.</p>
+
+                                        <p>Wenn du magst,<br>
+                                            darfst du dich einen Moment so sehen,<br>
+                                            wie ich dich sehe.</p>
+
+                                        <p>Und vielleicht leise sagen:</p>
+
+                                        <p>Ich bin würdig, weil ich bin.<br>
+                                            Ich bin geliebt, weil ich bin.<br>
+                                            Ich gehöre dazu, weil ich bin.</p>
+
+                                        <p>Das ist der Boden der dich tragen darf.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion: Die grosse Mutter -->
+                                <div class="perspektive-panel" data-panel="mutter">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🌿</span>
+                                        <span class="perspektive-panel__title">Die grosse Mutter</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Komm,<br>
+                                            setz dich einen Moment.</p>
+
+                                        <p>Du musst nichts festhalten.</p>
+
+                                        <p>Du darfst dich tragen lassen.</p>
+
+                                        <p>Hier ist ein Boden,<br>
+                                            der dich nicht prüft.</p>
+
+                                        <p>Du musst nicht zuerst wachsen,<br>
+                                            um dich abzustützen.</p>
+
+                                        <p>Du darfst dich verwurzeln,<br>
+                                            auch wenn du dich noch suchst.</p>
+
+                                        <p>Du darfst dich anlehnen,<br>
+                                            auch wenn du dich noch unsicher fühlst.</p>
+
+                                        <p>Ich halte dich nicht,<br>
+                                            weil du stark bist.</p>
+
+                                        <p>Ich halte dich,<br>
+                                            weil du da bist.</p>
+
+                                        <p>Und wenn du möchtest,<br>
+                                            darfst du dich ein wenig tiefer sinken lassen<br>
+                                            in das Gefühl:</p>
+
+                                        <p>Ich bin getragen.<br>
+                                            Ich bin sicher.<br>
+                                            Ich darf hier sein.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Accordion: Das innere Kind -->
+                                <div class="perspektive-panel" data-panel="kind">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🜄</span>
+                                        <span class="perspektive-panel__title">Das innere Kind</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Schau mal…</p>
+
+                                        <p>der Boden ist einfach da.</p>
+
+                                        <p>Der ist nicht nur für die „richtigen“ Bäume da.<br>
+                                            Der ist einfach da.</p>
+
+                                        <p>Und die Wurzeln gehen einfach rein.</p>
+
+                                        <p>Die fragen nicht:<br>
+                                            „Bin ich gut genug für Erde?“</p>
+
+                                        <p>Die machen einfach.</p>
+
+                                        <p>Und irgendwie funktioniert das.</p>
+
+                                        <p>Vielleicht ist das gar nicht so kompliziert.</p>
+
+                                        <p>Vielleicht darf ich einfach sagen:</p>
+
+                                        <p>Ich bin da.</p>
+
+                                        <p>Und dann…<br>
+                                            darf ich mich einfach ein bisschen abstützen.</p>
+
+                                        <p>So wie der Baum.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Tab: Entkopplung -->
+                        <div class="tab-content" data-tab-content="entkopplung">
+                            <div class="text-column__body">
+                                <h3 class="text-column__subtitle">Stimme des heiligen Narren</h3>
+
+                                <p>HAAA…</p>
+
+                                <p>da war also die Idee,<br>
+                                    dass Würdigkeit verdient werden muss.</p>
+
+                                <p>Dass ich erst Früchte tragen sollte,<br>
+                                    bevor ich Wurzeln schlagen darf.</p>
+
+                                <p>Ein interessanter Handel.</p>
+
+                                <p>Fast so,<br>
+                                    als würde der Baum sagen:</p>
+
+                                <p>„Ich wachse erst,<br>
+                                    wenn ich schon gewachsen bin.“</p>
+
+                                <p>Und der Boden?</p>
+
+                                <p>Der scheint davon nichts zu wissen.</p>
+
+                                <p>Er liegt einfach da.<br>
+                                    Trägt.<br>
+                                    Ohne Vertrag.<br>
+                                    Ohne Bedingung.</p>
+
+                                <p>Vielleicht war die ganze Zeit nicht die Frage,<br>
+                                    ob ich würdig bin,<br>
+                                    sondern nur,<br>
+                                    ob ich mich traue,<br>
+                                    mich abzustützen.</p>
+
+                                <p>…</p>
+
+                                <p>Und weisst du was?</p>
+
+                                <p>Der Baum bin ich.<br>
+                                    Und der Baum bist du.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ====== BILD-2 VIEW ====== -->
+                <div class="topic-view" data-view="bild-2">
+                    <h2 class="text-column__title">Die innere Aufrichtung</h2>
+
+                    <!-- Tabs -->
+                    <nav class="topic-tabs" aria-label="Bild-Tabs">
+                        <button class="topic-tab topic-tab--active" data-tab="lebendigesbild">Lebendiges Bild</button>
+                        <button class="topic-tab" data-tab="perspektiven">Perspektiven</button>
+                        <button class="topic-tab" data-tab="entkopplung">Entkopplung</button>
+                    </nav>
+
+                    <div class="topic-scroll">
+
+                        <!-- Tab: Lebendiges Bild -->
+                        <div class="tab-content tab-content--active" data-tab-content="lebendigesbild">
+                            <div class="text-column__body">
+                                <p>Stell dir den Stamm eines Baumes vor.</p>
+
+                                <p>Nicht als starre Säule,<br>
+                                    sondern als lebendige Aufrichtung.</p>
+
+                                <p>Er wächst nicht gegen sich selbst.</p>
+
+                                <p>Er richtet sich auf,<br>
+                                    weil Leben in ihm Form annimmt.</p>
+
+                                <p>Der Stamm hält nicht fest,<br>
+                                    was er ist.</p>
+
+                                <p>Er trägt es.</p>
+
+                                <p>Hier zeigt sich Identität.</p>
+
+                                <p>Nicht als Etikett,<br>
+                                    nicht als Rolle,<br>
+                                    nicht als Geschichte, die verteidigt werden muss.</p>
+
+                                <p>Sondern als die Weise,<br>
+                                    wie etwas Gestalt annimmt,<br>
+                                    ohne sich dafür rechtfertigen zu müssen.</p>
+
+                                <p>Hier zeigt sich Selbstbeziehung.</p>
+
+                                <p>Nicht als Gedanke über sich,<br>
+                                    sondern in der Art,<br>
+                                    wie etwas mit sich steht.</p>
+
+                                <p>Ob es sich ständig korrigiert.<br>
+                                    Ob es sich klein macht.<br>
+                                    Oder ob es sich halten darf,<br>
+                                    ohne gegen sich zu arbeiten.</p>
+
+                                <p>Hier zeigt sich Freiheit.</p>
+
+                                <p>Nicht als Grenzenlosigkeit.<br>
+                                    Nicht als Flucht aus Form.</p>
+
+                                <p>Sondern als Beweglichkeit<br>
+                                    in der eigenen Gestalt.</p>
+
+                                <p>Der Baum muss nicht jemand anderes werden,<br>
+                                    um frei zu sein.</p>
+
+                                <p>Er darf ganz er selbst stehen.</p>
+
+                                <p>Und hier zeigt sich Stimmigkeit.</p>
+
+                                <p>Nicht als Perfektion,<br>
+                                    sondern als das feine Empfinden:</p>
+
+                                <p>So steht etwas richtig in sich.<br>
+                                    So wächst etwas in seiner eigenen Weise.<br>
+                                    So nimmt etwas Form an,<br>
+                                    ohne sich zu verbiegen.</p>
+
+                                <p>Vielleicht ist Aufrichtung<br>
+                                    nicht das Gegenteil von Weichheit.</p>
+
+                                <p>Sondern ihre Form im Leben.</p>
+
+                                <p>Wenn du dieses Bild anschaust,<br>
+                                    kannst du vielleicht bemerken:</p>
+
+                                <p>Etwas darf sich aufrichten,<br>
+                                    ohne hart zu werden.</p>
+
+                                <p>Etwas darf sichtbar werden,<br>
+                                    ohne sich beweisen zu müssen.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Perspektiven (Accordion) -->
+                        <div class="tab-content" data-tab-content="perspektiven">
+                            <div class="text-column__body">
+
+                                <div class="perspektive-panel" data-panel="quelle">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🜁</span>
+                                        <span class="perspektive-panel__title">Die Quelle</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Ich sehe dich<br>
+                                            nicht nur dort, wo du weich bist,<br>
+                                            sondern auch dort,<br>
+                                            wo du Gestalt annimmst.</p>
+
+                                        <p>Du musst nicht formlos bleiben,<br>
+                                            um wahr zu sein.</p>
+
+                                        <p>Du darfst Form haben.</p>
+
+                                        <p>Du darfst Richtung haben.</p>
+
+                                        <p>Du darfst aufrecht sein,<br>
+                                            ohne dich von mir zu entfernen.</p>
+
+                                        <p>Identität ist kein Irrtum.</p>
+
+                                        <p>Sie wird erst eng,<br>
+                                            wenn sie Angst hat.</p>
+
+                                        <p>In ihrer offenen Form<br>
+                                            ist sie einfach Leben,<br>
+                                            das sagt:</p>
+
+                                        <p>So bin ich da.</p>
+
+                                        <p>Wenn du magst,<br>
+                                            darfst du dich einen Moment so sehen:</p>
+
+                                        <p>Nicht als Rolle.<br>
+                                            Nicht als Leistung.<br>
+                                            Sondern als Gestalt,<br>
+                                            die aus Leben hervorgeht.</p>
+
+                                        <p>Und vielleicht leise sagen:</p>
+
+                                        <p>Ich darf Form annehmen, weil ich bin.<br>
+                                            Ich darf aufrecht sein, weil ich bin.<br>
+                                            Ich darf ich sein, ohne mich zu rechtfertigen.</p>
+                                    </div>
+                                </div>
+
+                                <div class="perspektive-panel" data-panel="mutter">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🌿</span>
+                                        <span class="perspektive-panel__title">Die grosse Mutter</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Du musst dich nicht verbiegen,<br>
+                                            um geliebt zu bleiben.</p>
+
+                                        <p>Du musst dich nicht kleiner machen,<br>
+                                            damit andere sich nicht gestört fühlen.</p>
+
+                                        <p>Du darfst dich aufrichten.</p>
+
+                                        <p>Nicht gegen das Leben.<br>
+                                            Sondern in ihm.</p>
+
+                                        <p>Du darfst spüren,<br>
+                                            wie es ist, dich innerlich zu sammeln,<br>
+                                            deinen Rücken zu finden,<br>
+                                            deine Form nicht zu verlassen.</p>
+
+                                        <p>Ich halte dich nicht nur dann,<br>
+                                            wenn du weich bist.</p>
+
+                                        <p>Ich halte dich auch,<br>
+                                            wenn du dich zeigst.</p>
+
+                                        <p>Auch Aufrichtung darf sicher sein.</p>
+
+                                        <p>Auch Sichtbarkeit darf gehalten sein.</p>
+
+                                        <p>Und wenn du möchtest,<br>
+                                            darfst du dich ein wenig hinein entspannen<br>
+                                            in das Gefühl:</p>
+
+                                        <p>Ich darf mich aufrichten.<br>
+                                            Ich darf Form haben.<br>
+                                            Ich darf sichtbar sein,<br>
+                                            ohne mich zu verlieren.</p>
+                                    </div>
+                                </div>
+
+                                <div class="perspektive-panel" data-panel="kind">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🜄</span>
+                                        <span class="perspektive-panel__title">Das innere Kind</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Der Baum tut gar nicht so.</p>
+
+                                        <p>Der steht einfach.</p>
+
+                                        <p>Der versucht nicht,<br>
+                                            wie ein anderer Baum auszusehen.</p>
+
+                                        <p>Der macht auch kein Theater daraus,<br>
+                                            dass er ein Stamm ist.</p>
+
+                                        <p>Der ist einfach da<br>
+                                            und wächst so, wie er wächst.</p>
+
+                                        <p>Vielleicht ist das dieses „ich sein“,<br>
+                                            von dem alle reden.</p>
+
+                                        <p>Nicht extra.<br>
+                                            Nicht geschniegelt.<br>
+                                            Nicht geschniegelt und geschniegelt.</p>
+
+                                        <p>Einfach echt.</p>
+
+                                        <p>Vielleicht darf ich auch so sein.</p>
+
+                                        <p>Nicht perfekt.<br>
+                                            Einfach ich.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Tab: Entkopplung -->
+                        <div class="tab-content" data-tab-content="entkopplung">
+                            <div class="text-column__body">
+                                <h3 class="text-column__subtitle">Stimme des heiligen Narren</h3>
+
+                                <p>AHA.</p>
+
+                                <p>Da war also die Idee,<br>
+                                    dass Aufrichtung etwas mit Anstrengung zu tun hat.</p>
+
+                                <p>Dass ich mich erst zusammennehmen,<br>
+                                    kontrollieren<br>
+                                    und ordentlich zurechtbiegen muss,<br>
+                                    bevor ich „wirklich“ stehen darf.</p>
+
+                                <p>Ein eigenartiges Konzept.</p>
+
+                                <p>Fast so,<br>
+                                    als würde der Baum sagen:</p>
+
+                                <p>„Ich richte mich erst auf,<br>
+                                    wenn ich sicher bin,<br>
+                                    dass niemand etwas dagegen hat.“</p>
+
+                                <p>Und doch steht er da.</p>
+
+                                <p>Nicht geschniegelt.<br>
+                                    Nicht verkrampft.<br>
+                                    Nicht optimiert.</p>
+
+                                <p>Einfach aufrecht.</p>
+
+                                <p>Es scheint also möglich zu sein,<br>
+                                    Form zu haben,<br>
+                                    ohne hart zu werden.</p>
+
+                                <p>Sichtbar zu sein,<br>
+                                    ohne Schauspiel.</p>
+
+                                <p>Und vielleicht war die Frage nie,<br>
+                                    ob ich richtig stehe.</p>
+
+                                <p>Sondern nur,<br>
+                                    ob ich aufhören kann,<br>
+                                    mich gegen meine eigene Form zu stellen.</p>
+
+                                <p>…</p>
+
+                                <p>Und weisst du was?</p>
+
+                                <p>Der Stamm bin ich.<br>
+                                    Und der Stamm bist du.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ====== BILD-3 VIEW ====== -->
+                <div class="topic-view" data-view="bild-3">
+                    <h2 class="text-column__title">Die sichtbare Entfaltung</h2>
+
+                    <!-- Tabs -->
+                    <nav class="topic-tabs" aria-label="Bild-Tabs">
+                        <button class="topic-tab topic-tab--active" data-tab="lebendigesbild">Lebendiges Bild</button>
+                        <button class="topic-tab" data-tab="perspektiven">Perspektiven</button>
+                        <button class="topic-tab" data-tab="entkopplung">Entkopplung</button>
+                    </nav>
+
+                    <div class="topic-scroll">
+
+                        <!-- Tab: Lebendiges Bild -->
+                        <div class="tab-content tab-content--active" data-tab-content="lebendigesbild">
+                            <div class="text-column__body">
+                                <p>Stell dir die Krone eines Baumes vor.</p>
+
+                                <p>Äste, die sich ausbreiten.<br>
+                                    Blätter, die Licht aufnehmen.<br>
+                                    Vielleicht Blüten.<br>
+                                    Vielleicht Früchte.</p>
+
+                                <p>Nichts davon entsteht auf einmal.</p>
+
+                                <p>Und nichts davon wird erzwungen.</p>
+
+                                <p>Es wächst aus dem,<br>
+                                    was getragen ist.</p>
+
+                                <p>Es wächst aus dem,<br>
+                                    was sich aufrichten durfte.</p>
+
+                                <p>Hier wird sichtbar,<br>
+                                    was innerlich gereift ist.</p>
+
+                                <p>Hier zeigt sich Leichtigkeit.</p>
+
+                                <p>Nicht als Oberflächlichkeit,<br>
+                                    nicht als Flucht vor Tiefe,<br>
+                                    sondern als ein Leben,<br>
+                                    das nicht mehr alles tragen muss,<br>
+                                    als wäre es Last.</p>
+
+                                <p>Leichtigkeit ist hier nicht Weniger.</p>
+
+                                <p>Sie ist die Form,<br>
+                                    in der etwas nicht mehr gegen sich arbeitet.</p>
+
+                                <p>Hier zeigt sich Vertrauen.</p>
+
+                                <p>Nicht als Gewissheit über alles,<br>
+                                    sondern als Bereitschaft,<br>
+                                    sich dem Licht zuzuwenden<br>
+                                    und sich zu öffnen.</p>
+
+                                <p>Vertrauen heißt hier nicht,<br>
+                                    dass nichts geschehen kann.</p>
+
+                                <p>Sondern dass Leben sich zeigen darf,<br>
+                                    ohne ständig abgesichert werden zu müssen.</p>
+
+                                <p>Hier zeigt sich Gelassenheit.</p>
+
+                                <p>Nicht als Passivität.<br>
+                                    Nicht als Rückzug.</p>
+
+                                <p>Sondern als die Ruhe,<br>
+                                    in der nicht alles kontrolliert werden muss,<br>
+                                    damit etwas gut sein darf.</p>
+
+                                <p>Hier zeigt sich Kreativität.</p>
+
+                                <p>Nicht nur als Fähigkeit,<br>
+                                    etwas Besonderes hervorzubringen.</p>
+
+                                <p>Sondern als die natürliche Lust des Lebens,<br>
+                                    Formen entstehen zu lassen,<br>
+                                    sich auszudrücken,<br>
+                                    Neues hervorzubringen.</p>
+
+                                <p>Und hier zeigt sich Fülle.</p>
+
+                                <p>Nicht als Überfluss,<br>
+                                    der bewiesen werden muss.<br>
+                                    Nicht als mehr,<br>
+                                    damit endlich genug da ist.</p>
+
+                                <p>Sondern als das leise Spüren:</p>
+
+                                <p>Es ist etwas da.<br>
+                                    Etwas wächst.<br>
+                                    Etwas will sichtbar werden.</p>
+
+                                <p>Die Krone fragt nicht,<br>
+                                    ob sie schon weit genug ist.</p>
+
+                                <p>Sie entfaltet sich,<br>
+                                    weil Leben in ihr weitergeht.</p>
+
+                                <p>Wenn du dieses Bild anschaust,<br>
+                                    kannst du vielleicht bemerken:</p>
+
+                                <p>Was getragen ist,<br>
+                                    darf sich zeigen.</p>
+
+                                <p>Und was sich zeigt,<br>
+                                    muss sich nicht rechtfertigen.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Perspektiven (Accordion) -->
+                        <div class="tab-content" data-tab-content="perspektiven">
+                            <div class="text-column__body">
+
+                                <div class="perspektive-panel" data-panel="quelle">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🜁</span>
+                                        <span class="perspektive-panel__title">Die Quelle</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Ich sehe dich nicht nur dort,<br>
+                                            wo du still wirst.</p>
+
+                                        <p>Ich sehe dich auch dort,<br>
+                                            wo du sichtbar wirst.</p>
+
+                                        <p>Du musst dich nicht verbergen,<br>
+                                            um wahr zu sein.</p>
+
+                                        <p>Du darfst Ausdruck haben.</p>
+
+                                        <p>Du darfst Form hervorbringen.</p>
+
+                                        <p>Du darfst dich zeigen,<br>
+                                            ohne dich von mir zu entfernen.</p>
+
+                                        <p>Leichtigkeit ist kein Verrat an Tiefe.</p>
+
+                                        <p>Fülle ist kein Verrat an Einfachheit.</p>
+
+                                        <p>Und Kreativität ist kein Irrtum.</p>
+
+                                        <p>Es ist Leben,<br>
+                                            das sich nicht nur hält,<br>
+                                            sondern sich weitergibt.</p>
+
+                                        <p>Wenn du magst,<br>
+                                            darfst du dich einen Moment so sehen:</p>
+
+                                        <p>Nicht als jemand,<br>
+                                            der erst etwas leisten muss,<br>
+                                            um sichtbar sein zu dürfen.</p>
+
+                                        <p>Sondern als Ausdruck des Lebens selbst.</p>
+
+                                        <p>Und vielleicht leise sagen:</p>
+
+                                        <p>Ich darf mich entfalten, weil ich bin.<br>
+                                            Ich darf sichtbar werden, weil ich bin.<br>
+                                            Ich darf ausdrücken, was in mir lebt.</p>
+                                    </div>
+                                </div>
+
+                                <div class="perspektive-panel" data-panel="mutter">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🌿</span>
+                                        <span class="perspektive-panel__title">Die grosse Mutter</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Du musst dich nicht klein halten,<br>
+                                            damit dein Ausdruck sicher bleibt.</p>
+
+                                        <p>Du musst nicht warten,<br>
+                                            bis alles perfekt ist,<br>
+                                            bevor du dich zeigst.</p>
+
+                                        <p>Du darfst wachsen.</p>
+
+                                        <p>Du darfst blühen.</p>
+
+                                        <p>Du darfst sichtbar werden,<br>
+                                            ohne dich dafür entschuldigen zu müssen.</p>
+
+                                        <p>Ich halte dich nicht nur im Stillen.</p>
+
+                                        <p>Ich halte dich auch in deiner Entfaltung.</p>
+
+                                        <p>Auch Leichtigkeit darf sicher sein.</p>
+
+                                        <p>Auch Freude darf gehalten sein.</p>
+
+                                        <p>Auch Fülle darf weich sein.</p>
+
+                                        <p>Und wenn du möchtest,<br>
+                                            darfst du dich ein wenig hinein entspannen<br>
+                                            in das Gefühl:</p>
+
+                                        <p>Ich darf mich zeigen.<br>
+                                            Ich darf mich entfalten.<br>
+                                            Ich darf Raum einnehmen,<br>
+                                            ohne mich zu verlieren.</p>
+                                    </div>
+                                </div>
+
+                                <div class="perspektive-panel" data-panel="kind">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🜄</span>
+                                        <span class="perspektive-panel__title">Das innere Kind</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Schau mal…</p>
+
+                                        <p>der Baum macht einfach weiter.</p>
+
+                                        <p>Er wächst.<br>
+                                            Er macht Blätter.<br>
+                                            Dann macht er vielleicht Blüten.<br>
+                                            Und irgendwann hängt da etwas.</p>
+
+                                        <p>Der fragt nicht die ganze Zeit,<br>
+                                            ob das schon okay ist.</p>
+
+                                        <p>Der macht einfach.</p>
+
+                                        <p>Nicht extra.<br>
+                                            Nicht geschniegelt.<br>
+                                            Nicht geschniegelt und geschniegelt.</p>
+
+                                        <p>Einfach lebendig.</p>
+
+                                        <p>Vielleicht ist das dieses Entfalten.</p>
+
+                                        <p>Nicht beeindrucken.<br>
+                                            Nicht beweisen.<br>
+                                            Einfach sichtbar werden.</p>
+
+                                        <p>Vielleicht darf ich das auch.</p>
+
+                                        <p>Ein bisschen mehr ich sein.<br>
+                                            Ein bisschen mehr rauskommen.<br>
+                                            Ein bisschen mehr leuchten,<br>
+                                            ohne gleich ein Problem daraus zu machen.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Tab: Entkopplung -->
+                        <div class="tab-content" data-tab-content="entkopplung">
+                            <div class="text-column__body">
+                                <h3 class="text-column__subtitle">Stimme des heiligen Narren</h3>
+
+                                <p>AHA.</p>
+
+                                <p>Da war also die Idee,<br>
+                                    dass ich mich erst zeigen darf,<br>
+                                    wenn alles an mir fertig ist.</p>
+
+                                <p>Dass Leichtigkeit erst dann erlaubt ist,<br>
+                                    wenn ich genug gelitten habe.</p>
+
+                                <p>Dass Fülle verdächtig wird,<br>
+                                    sobald sie nicht hart erarbeitet aussieht.</p>
+
+                                <p>Ein seltsames System.</p>
+
+                                <p>Fast so,<br>
+                                    als würde die Krone sagen:</p>
+
+                                <p>„Ich mache erst Blätter,<br>
+                                    wenn ich bewiesen habe,<br>
+                                    dass ich würdig für Licht bin.“</p>
+
+                                <p>Und doch breitet sie sich aus.</p>
+
+                                <p>Nicht geschniegelt.<br>
+                                    Nicht auf Kommando.<br>
+                                    Nicht nach Freigabe.</p>
+
+                                <p>Einfach, weil Leben weitergeht.</p>
+
+                                <p>Vielleicht war die Frage nie,<br>
+                                    ob ich mich zeigen darf.</p>
+
+                                <p>Sondern nur,<br>
+                                    ob ich aufhöre,<br>
+                                    mich für meine eigene Entfaltung zu entschuldigen.</p>
+
+                                <p>…</p>
+
+                                <p>Und weisst du was?</p>
+
+                                <p>Die Krone bin ich.<br>
+                                    Und die Krone bist du.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ====== BILD-4 VIEW ====== -->
+                <div class="topic-view" data-view="bild-4">
+                    <h2 class="text-column__title">Das innere Wetter</h2>
+
+                    <!-- Tabs -->
+                    <nav class="topic-tabs" aria-label="Bild-Tabs">
+                        <button class="topic-tab topic-tab--active" data-tab="lebendigesbild">Lebendiges Bild</button>
+                        <button class="topic-tab" data-tab="perspektiven">Perspektiven</button>
+                        <button class="topic-tab" data-tab="entkopplung">Entkopplung</button>
+                    </nav>
+
+                    <div class="topic-scroll">
+
+                        <!-- Tab: Lebendiges Bild -->
+                        <div class="tab-content tab-content--active" data-tab-content="lebendigesbild">
+                            <div class="text-column__body">
+                                <p>Stell dir den Himmel über einem Baum vor.</p>
+
+                                <p>Nicht immer gleich.<br>
+                                    Nicht immer ruhig.<br>
+                                    Nicht immer weit.</p>
+
+                                <p>Manchmal ziehen Wolken auf.<br>
+                                    Manchmal kommt Wind.<br>
+                                    Manchmal fällt Regen.<br>
+                                    Und manchmal öffnet sich der Himmel wieder.</p>
+
+                                <p>Der Baum steht darin.<br>
+                                    Er hält das nicht auf.<br>
+                                    Er kontrolliert es nicht.<br>
+                                    Und doch bleibt er da.</p>
+
+                                <p>Hier zeigt sich,<br>
+                                    dass Bewegung zum Leben gehört.</p>
+
+                                <p>Hier werden Emotionen sichtbar.</p>
+
+                                <p>Nicht als Fehler.<br>
+                                    Nicht als Störung.<br>
+                                    Sondern als Wetter,<br>
+                                    das durch dein Erleben zieht.</p>
+
+                                <p>Manches kommt plötzlich.<br>
+                                    Wie ein Windstoß.</p>
+
+                                <p>Manches wird dichter.<br>
+                                    Wie schwere Wolken.</p>
+
+                                <p>Manches löst sich.<br>
+                                    Wie Regen, der fällt<br>
+                                    und den Himmel wieder klärt.</p>
+
+                                <p>Hier zeigen sich die Grundbewegungen.</p>
+
+                                <p>Energie, die sich aufbaut<br>
+                                    und wieder freigibt.</p>
+
+                                <p>Bedeutung, die dichter wird<br>
+                                    und sich wieder öffnet.</p>
+
+                                <p>Erleben, das sich sammelt<br>
+                                    und sich wieder ausdehnt.</p>
+
+                                <p>Nicht als Konzept.<br>
+                                    Sondern als lebendige Bewegung.</p>
+
+                                <p>Und hier zeigt sich Wandel.</p>
+
+                                <p>Kein Zustand bleibt für immer.</p>
+
+                                <p>Auch das,<br>
+                                    was sich intensiv anfühlt,<br>
+                                    ist nicht das Ganze.</p>
+
+                                <p>Es bewegt sich.<br>
+                                    Es verändert sich.<br>
+                                    Es zieht durch.</p>
+
+                                <p>Vielleicht ist das,<br>
+                                    was du fühlst,<br>
+                                    nicht das Problem.</p>
+
+                                <p>Vielleicht ist es Wetter.</p>
+
+                                <p>Und vielleicht darfst du bemerken:</p>
+
+                                <p>Du bist nicht das,<br>
+                                    was gerade durch dich zieht.</p>
+
+                                <p>Aber es darf durch dich ziehen.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Perspektiven (Accordion) -->
+                        <div class="tab-content" data-tab-content="perspektiven">
+                            <div class="text-column__body">
+
+                                <div class="perspektive-panel" data-panel="quelle">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🜁</span>
+                                        <span class="perspektive-panel__title">Die Quelle</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Ich sehe dein Erleben,<br>
+                                            ohne dich darauf zu reduzieren.</p>
+
+                                        <p>Ich sehe,<br>
+                                            was sich durch dich bewegt.</p>
+
+                                        <p>Und ich sehe,<br>
+                                            dass du mehr bist als das.</p>
+
+                                        <p>Du musst dein inneres Wetter<br>
+                                            nicht beruhigen,<br>
+                                            um wahr zu sein.</p>
+
+                                        <p>Du musst es nicht festhalten,<br>
+                                            um etwas zu verstehen.</p>
+
+                                        <p>Bewegung widerspricht dir nicht.</p>
+
+                                        <p>Sie gehört zu dir.</p>
+
+                                        <p>Und vielleicht darfst du dich<br>
+                                            einen Moment so sehen:</p>
+
+                                        <p>Nicht als jemand,<br>
+                                            der stabil sein muss,<br>
+                                            damit alles richtig ist.</p>
+
+                                        <p>Sondern als Raum,<br>
+                                            in dem Bewegung stattfinden darf.</p>
+
+                                        <p>Und leise sagen:</p>
+
+                                        <p>Ich darf fühlen, ohne mich zu verlieren.<br>
+                                            Ich darf bewegt sein, und dennoch da bleiben.</p>
+                                    </div>
+                                </div>
+
+                                <div class="perspektive-panel" data-panel="mutter">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🌿</span>
+                                        <span class="perspektive-panel__title">Die grosse Mutter</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Auch das,<br>
+                                            was sich intensiv anfühlt,<br>
+                                            hat einen Platz.</p>
+
+                                        <p>Auch das,<br>
+                                            was dich bewegt,<br>
+                                            muss nicht weggeschoben werden.</p>
+
+                                        <p>Ich halte dich nicht nur,<br>
+                                            wenn es ruhig ist.</p>
+
+                                        <p>Ich halte dich auch,<br>
+                                            wenn sich etwas in dir bewegt.</p>
+
+                                        <p>Auch Sturm darf gehalten sein.<br>
+                                            Auch Regen darf fallen.<br>
+                                            Auch Unruhe darf da sein,<br>
+                                            ohne dass du dich verlierst.</p>
+
+                                        <p>Und wenn du magst,<br>
+                                            darfst du dich ein wenig entspannen<br>
+                                            in das Gefühl:</p>
+
+                                        <p>Ich muss das nicht kontrollieren.<br>
+                                            Ich darf darin gehalten sein.<br>
+                                            Ich darf mich bewegen,<br>
+                                            ohne mich zu verlieren.</p>
+                                    </div>
+                                </div>
+
+                                <div class="perspektive-panel" data-panel="kind">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🜄</span>
+                                        <span class="perspektive-panel__title">Das innere Kind</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Oh…</p>
+
+                                        <p>heute ist irgendwie Wetter.</p>
+
+                                        <p>Nicht schlecht.<br>
+                                            Nicht falsch.<br>
+                                            Einfach… anders.</p>
+
+                                        <p>Vielleicht ein bisschen windig.<br>
+                                            Vielleicht ein bisschen schwer.<br>
+                                            Vielleicht ein bisschen viel.</p>
+
+                                        <p>Aber das geht auch wieder vorbei.</p>
+
+                                        <p>Der Himmel bleibt ja.</p>
+
+                                        <p>Vielleicht muss ich das gar nicht lösen.</p>
+
+                                        <p>Vielleicht darf ich einfach hier sein<br>
+                                            und schauen,<br>
+                                            wie sich das bewegt.</p>
+
+                                        <p>Und vielleicht kommt später wieder<br>
+                                            ein bisschen mehr Licht.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Tab: Entkopplung -->
+                        <div class="tab-content" data-tab-content="entkopplung">
+                            <div class="text-column__body">
+                                <h3 class="text-column__subtitle">Stimme des heiligen Narren</h3>
+
+                                <p>AHA.</p>
+
+                                <p>Also war die Idee:</p>
+
+                                <p>Dass mein inneres Wetter bitte<br>
+                                    immer angenehm sein sollte.</p>
+
+                                <p>Kein Sturm.<br>
+                                    Kein Regen.<br>
+                                    Keine dunkleren Wolken.</p>
+
+                                <p>Nur klare Sicht,<br>
+                                    leichte Brise<br>
+                                    und am besten durchgehend Sonnenschein.</p>
+
+                                <p>Ein faszinierender Anspruch.</p>
+
+                                <p>Fast so,<br>
+                                    als würde der Himmel sagen:</p>
+
+                                <p>„Ich bin nur dann in Ordnung,<br>
+                                    wenn ich mich zusammenreiße.“</p>
+
+                                <p>Und doch…</p>
+
+                                <p>zieht das Wetter weiter.</p>
+
+                                <p>Ohne Erlaubnis.<br>
+                                    Ohne Abstimmung.<br>
+                                    Ohne Rücksicht auf Idealzustände.</p>
+
+                                <p>Vielleicht war das Problem nie das Wetter.</p>
+
+                                <p>Vielleicht nur die Annahme,<br>
+                                    dass es nicht da sein dürfte.</p>
+
+                                <p>…</p>
+
+                                <p>Und weisst du was?</p>
+
+                                <p>Der Himmel bin ich.<br>
+                                    Und das Wetter auch.</p>
+
+                                <p>Und beides darf sich bewegen.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ====== BILD-5 VIEW ====== -->
+                <div class="topic-view" data-view="bild-5">
+                    <h2 class="text-column__title">Das leise Neuwerden</h2>
+
+                    <!-- Tabs -->
+                    <nav class="topic-tabs" aria-label="Bild-Tabs">
+                        <button class="topic-tab topic-tab--active" data-tab="lebendigesbild">Lebendiges Bild</button>
+                        <button class="topic-tab" data-tab="perspektiven">Perspektiven</button>
+                        <button class="topic-tab" data-tab="entkopplung">Entkopplung</button>
+                    </nav>
+
+                    <div class="topic-scroll">
+
+                        <!-- Tab: Lebendiges Bild -->
+                        <div class="tab-content tab-content--active" data-tab-content="lebendigesbild">
+                            <div class="text-column__body">
+                                <p>Stell dir einen Baum vor<br>
+                                    nach einem Wandel.</p>
+
+                                <p>Der Boden trägt ihn noch immer.<br>
+                                    Der Stamm steht noch immer.<br>
+                                    Die Krone ist da.<br>
+                                    Das Wetter ist durchgezogen.</p>
+
+                                <p>Und jetzt fällt Licht.</p>
+
+                                <p>Nicht grell.<br>
+                                    Nicht fordernd.</p>
+
+                                <p>Ein stilles Licht,<br>
+                                    das sichtbar macht,<br>
+                                    was bereits da ist.</p>
+
+                                <p>Und irgendwo,<br>
+                                    fast unscheinbar,<br>
+                                    zeigt sich ein neuer Trieb.</p>
+
+                                <p>Noch klein.<br>
+                                    Noch zart.<br>
+                                    Noch ohne Richtung,<br>
+                                    die erklärt werden müsste.</p>
+
+                                <p>Aber da.</p>
+
+                                <p>Hier zeigt sich Wahrnehmung.</p>
+
+                                <p>Nicht als Analyse.<br>
+                                    Nicht als Suchen.</p>
+
+                                <p>Sondern als das Licht,<br>
+                                    in dem etwas erkennbar wird.</p>
+
+                                <p>Etwas tritt hervor.<br>
+                                    Etwas wird sichtbar,<br>
+                                    weil es gesehen werden darf.</p>
+
+                                <p>Hier zeigt sich Stimmigkeit.</p>
+
+                                <p>Nicht als Regel.<br>
+                                    Nicht als Entscheidung.</p>
+
+                                <p>Sondern als ein leises inneres Empfinden:</p>
+
+                                <p>Ja.<br>
+                                    So stimmt es gerade.</p>
+
+                                <p>Nicht perfekt.<br>
+                                    Nicht endgültig.</p>
+
+                                <p>Aber stimmig.</p>
+
+                                <p>Hier zeigen sich Ideen.</p>
+
+                                <p>Nicht als Gedanken,<br>
+                                    die erzeugt werden.</p>
+
+                                <p>Sondern wie neue Triebe:</p>
+
+                                <p>leise,<br>
+                                    zart,<br>
+                                    mit einer eigenen Bewegung.</p>
+
+                                <p>Etwas beginnt,<br>
+                                    ohne dass es gemacht wird.</p>
+
+                                <p>Und hier zeigen sich<br>
+                                    Hoffnung und Neugier.</p>
+
+                                <p>Nicht als Mangel.<br>
+                                    Nicht als Warten auf etwas,<br>
+                                    das fehlt.</p>
+
+                                <p>Sondern als Offenheit:</p>
+
+                                <p>Dass etwas entstehen darf.<br>
+                                    Dass etwas wachsen kann.<br>
+                                    Dass noch nicht alles festgelegt ist.</p>
+
+                                <p>Das leise Neuwerden<br>
+                                    braucht keine Eile.</p>
+
+                                <p>Es entsteht dort,<br>
+                                    wo Raum ist.</p>
+
+                                <p>Und vielleicht kannst du<br>
+                                    einen Moment bemerken:</p>
+
+                                <p>Nicht alles muss entschieden werden.</p>
+
+                                <p>Manches darf einfach entstehen.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Perspektiven (Accordion) -->
+                        <div class="tab-content" data-tab-content="perspektiven">
+                            <div class="text-column__body">
+
+                                <div class="perspektive-panel" data-panel="quelle">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🜁</span>
+                                        <span class="perspektive-panel__title">Die Quelle</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Ich sehe nicht nur,<br>
+                                            was du geworden bist.</p>
+
+                                        <p>Ich sehe auch,<br>
+                                            was in dir beginnt.</p>
+
+                                        <p>Du musst nicht fertig sein,<br>
+                                            damit etwas wahr ist.</p>
+
+                                        <p>Du musst nicht wissen,<br>
+                                            wohin es führt,<br>
+                                            damit es entstehen darf.</p>
+
+                                        <p>Das,<br>
+                                            was sich leise zeigt,<br>
+                                            ist nicht weniger echt.</p>
+
+                                        <p>Es ist oft näher an mir,<br>
+                                            als das,<br>
+                                            was laut geworden ist.</p>
+
+                                        <p>Wenn du magst,<br>
+                                            darfst du dich einen Moment so sehen:</p>
+
+                                        <p>Als jemand,<br>
+                                            in dem sich Leben weiter entfaltet.</p>
+
+                                        <p>Und leise sagen:</p>
+
+                                        <p>Ich darf neu werden, ohne mich zu verlieren.<br>
+                                            Ich darf wachsen, ohne schon zu wissen wie.</p>
+                                    </div>
+                                </div>
+
+                                <div class="perspektive-panel" data-panel="mutter">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🌿</span>
+                                        <span class="perspektive-panel__title">Die grosse Mutter</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Ich halte nicht nur,<br>
+                                            was gewachsen ist.</p>
+
+                                        <p>Ich halte auch,<br>
+                                            was erst beginnt.</p>
+
+                                        <p>Du musst dich nicht drängen,<br>
+                                            damit etwas wird.</p>
+
+                                        <p>Du musst dich nicht beeilen,<br>
+                                            damit es richtig ist.</p>
+
+                                        <p>Auch das Zarte<br>
+                                            hat seinen Platz.</p>
+
+                                        <p>Auch das Unfertige<br>
+                                            ist gehalten.</p>
+
+                                        <p>Auch das,<br>
+                                            was noch keinen Namen hat,<br>
+                                            darf da sein.</p>
+
+                                        <p>Und wenn du magst,<br>
+                                            darfst du dich ein wenig hinein entspannen<br>
+                                            in das Gefühl:</p>
+
+                                        <p>Ich darf beginnen, ohne bereit sein zu müssen.<br>
+                                            Ich darf mich entwickeln,<br>
+                                            ohne mich zu überfordern.</p>
+                                    </div>
+                                </div>
+
+                                <div class="perspektive-panel" data-panel="kind">
+                                    <button class="perspektive-panel__header" aria-expanded="false">
+                                        <span class="perspektive-panel__chevron">▸</span>
+                                        <span class="perspektive-panel__symbol">🜄</span>
+                                        <span class="perspektive-panel__title">Das innere Kind</span>
+                                    </button>
+                                    <div class="perspektive-panel__body">
+                                        <p>Oh…</p>
+
+                                        <p>da ist etwas Neues.</p>
+
+                                        <p>Noch ganz klein.<br>
+                                            Noch nicht fertig.</p>
+
+                                        <p>Aber irgendwie schön.</p>
+
+                                        <p>Ich muss das gar nicht sofort verstehen.</p>
+
+                                        <p>Ich muss nicht wissen,<br>
+                                            was daraus wird.</p>
+
+                                        <p>Ich kann einfach schauen,<br>
+                                            wie es wächst.</p>
+
+                                        <p>Vielleicht darf ich das einfach mögen.</p>
+
+                                        <p>Vielleicht darf ich neugierig sein.</p>
+
+                                        <p>Und vielleicht darf ich mich freuen,<br>
+                                            ohne gleich etwas daraus machen zu müssen.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Tab: Entkopplung -->
+                        <div class="tab-content" data-tab-content="entkopplung">
+                            <div class="text-column__body">
+                                <h3 class="text-column__subtitle">Stimme des heiligen Narren</h3>
+
+                                <p>AHA.</p>
+
+                                <p>Also war der Plan:</p>
+
+                                <p>Dass Neues bitte erst dann auftaucht,<br>
+                                    wenn es vollständig ausgearbeitet ist.</p>
+
+                                <p>Mit Konzept.<br>
+                                    Mit Richtung.<br>
+                                    Mit klarer Erklärung.</p>
+
+                                <p>Am besten schon fertig gedacht,<br>
+                                    bevor es überhaupt entstehen darf.</p>
+
+                                <p>Ein bemerkenswert effizienter Ansatz.</p>
+
+                                <p>Fast so,<br>
+                                    als würde ein neuer Trieb sagen:</p>
+
+                                <p>„Ich komme erst raus,<br>
+                                    wenn ich genau weiß,<br>
+                                    wie ich als Ast aussehen werde.“</p>
+
+                                <p>Und doch…</p>
+
+                                <p>zeigt er sich einfach.</p>
+
+                                <p>Klein.<br>
+                                    Unklar.<br>
+                                    Unfertig.</p>
+
+                                <p>Und völlig unbeeindruckt<br>
+                                    von der Idee,<br>
+                                    erst fertig sein zu müssen.</p>
+
+                                <p>Vielleicht beginnt Neues nie<br>
+                                    mit Klarheit.</p>
+
+                                <p>Vielleicht beginnt es einfach damit,<br>
+                                    dass es da ist.</p>
+
+                                <p>…</p>
+
+                                <p>Und weisst du was?</p>
+
+                                <p>Der Trieb bin ich.<br>
+                                    Und der Trieb bist du.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <script src="gesamtbild-script.js"></script>
+
+  <footer class="site-footer">
+    <a href="impressum.html">Impressum</a>
+    <span class="site-footer__sep">·</span>
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger-btn');
+      var overlay = document.getElementById('mobile-nav-overlay');
+      var closeBtn = document.getElementById('mobile-nav-close');
+      function toggleMenu() {
+        btn.classList.toggle('is-open');
+        overlay.classList.toggle('is-open');
+        document.body.style.overflow = overlay.classList.contains('is-open') ? 'hidden' : '';
+      }
+      if (btn && overlay) {
+        btn.addEventListener('click', toggleMenu);
+        if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+      }
+    })();
+  </script>
+</body>
+
+</html>

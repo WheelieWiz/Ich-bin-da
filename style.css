@@ -1,0 +1,2729 @@
+/* ================================================
+   Bewusstseins-Atlas — Design System & Styles
+   ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400&display=swap');
+
+/* --- Design Tokens --- */
+:root {
+  --color-bg: #FAF8F5;
+  --color-bg-warm: #F5F0EB;
+  --color-beige: #E8E0D5;
+  --color-beige-strong: #D8CCBD;
+  --color-warm-gray: #B5AFA6;
+  --color-sage: #A8B5A0;
+  --color-sage-light: #C5CFBF;
+  --color-text: #4A4540;
+  --color-text-light: #8A847B;
+  --color-text-faint: #ADA79E;
+  --color-accent: #D4C5B0;
+  --color-glow: rgba(168, 181, 160, 0.3);
+  --color-glow-warm: rgba(212, 197, 176, 0.4);
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', -apple-system, sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+
+  --radius-pill: 50px;
+
+  --transition-calm: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-gentle: 0.4s ease;
+
+  --header-height: 52px;
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ============================================ */
+/* PAGE LAYOUT — viewport-fit                  */
+/* ============================================ */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--header-height));
+  padding: var(--space-sm) var(--space-md);
+  overflow: hidden;
+}
+
+/* --- Two-column atlas layout --- */
+.atlas-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* ============================================ */
+/* SVG ATLAS — left column (circles + meta)    */
+/* ============================================ */
+
+.atlas {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  align-self: center;
+}
+
+.atlas svg {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 6rem);
+  overflow: visible;
+}
+
+/* ============================================ */
+/* TEXT COLUMN — right, internal scroll         */
+/* ============================================ */
+
+.text-column {
+  flex: 0 1 38%;
+  max-height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: var(--space-lg) var(--space-xl) var(--space-lg) var(--space-lg);
+  margin-top: 0;
+}
+
+/* Subtle scrollbar — spaced from text via padding-right */
+.text-column::-webkit-scrollbar {
+  width: 3px;
+}
+
+.text-column::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.text-column::-webkit-scrollbar-thumb {
+  background: var(--color-beige);
+  border-radius: 3px;
+}
+
+.text-column__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
+}
+
+.text-column__subtitle {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #8A8176;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
+.text-column__subtitle:first-child {
+  margin-top: 0;
+}
+
+.text-column__body {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 200;
+  color: var(--color-text-light);
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+/* When body is direct child of topic-view (intro), make it scroll */
+.topic-view--active>.text-column__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: var(--space-sm);
+}
+
+.topic-view--active>.text-column__body::-webkit-scrollbar {
+  width: 3px;
+}
+
+.topic-view--active>.text-column__body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.topic-view--active>.text-column__body::-webkit-scrollbar-thumb {
+  background: var(--color-beige);
+  border-radius: 3px;
+}
+
+.text-column__body p {
+  margin-bottom: var(--space-sm);
+}
+
+/* ============================================ */
+/* RING LINES — concentric circles             */
+/* ============================================ */
+
+.ring-line {
+  fill: none;
+  transition: var(--transition-gentle);
+}
+
+.ring-line--inner {
+  stroke: var(--color-beige-strong);
+  stroke-width: 1.2;
+  opacity: 0.6;
+}
+
+.ring-line--middle {
+  stroke: var(--color-beige-strong);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+.ring-line--outer {
+  stroke: var(--color-sage);
+  stroke-width: 1;
+  opacity: 0.5;
+}
+
+.ring-whisper {
+  fill: none;
+  stroke: var(--color-beige);
+  stroke-width: 0.3;
+  opacity: 0.1;
+}
+
+/* Ring labels along paths */
+.ring-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 200;
+  fill: var(--color-sage);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+/* ============================================ */
+/* NODE DOTS & TEXT                             */
+/* ============================================ */
+
+.node-dot {
+  transition: var(--transition-calm);
+}
+
+.node-dot--inner {
+  fill: var(--color-beige-strong);
+  opacity: 0.5;
+}
+
+.node-dot--outer {
+  fill: var(--color-sage-light);
+  opacity: 0.45;
+}
+
+.node-dot--meta {
+  fill: var(--color-warm-gray);
+  opacity: 0.6;
+}
+
+.node-text {
+  font-family: var(--font-body);
+  font-weight: 300;
+  text-anchor: middle;
+  dominant-baseline: auto;
+  cursor: default;
+  transition: var(--transition-gentle);
+}
+
+.node-text--inner {
+  font-size: 13.5px;
+  fill: var(--color-text);
+  letter-spacing: 0.04em;
+}
+
+.node-text--outer {
+  font-size: 13px;
+  fill: var(--color-text-light);
+  letter-spacing: 0.05em;
+}
+
+.node-text-center {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  fill: var(--color-text);
+  text-anchor: middle;
+  dominant-baseline: central;
+  letter-spacing: 0.06em;
+  cursor: default;
+  transition: var(--transition-gentle);
+}
+
+.node-text-meta {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  fill: var(--color-text);
+  text-anchor: middle;
+  dominant-baseline: auto;
+  letter-spacing: 0.04em;
+  cursor: default;
+  transition: var(--transition-gentle);
+}
+
+/* ============================================ */
+/* META-EBENE — SVG elements                   */
+/* ============================================ */
+
+.meta-separator {
+  stroke: var(--color-sage);
+  stroke-width: 0.8;
+  opacity: 0.25;
+}
+
+.meta-heading {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  fill: var(--color-sage);
+  text-anchor: middle;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.meta-heading-rule {
+  stroke: var(--color-sage);
+  stroke-width: 0.8;
+  opacity: 0.25;
+}
+
+/* ============================================ */
+/* HOVER INTERACTIONS                          */
+/* ============================================ */
+
+.atlas-node {
+  cursor: default;
+  transition: var(--transition-calm);
+  outline: none;
+}
+
+/* Inner ring hover */
+.atlas-node:hover .node-dot--inner {
+  r: 10;
+  opacity: 0.7;
+  fill: var(--color-accent);
+  filter: drop-shadow(0 0 12px var(--color-glow-warm));
+}
+
+.atlas-node:hover .node-text--inner {
+  fill: var(--color-text);
+  font-size: 14.5px;
+}
+
+/* Outer ring hover */
+.atlas-node:hover .node-dot--outer {
+  r: 10;
+  opacity: 0.65;
+  fill: var(--color-sage);
+  filter: drop-shadow(0 0 12px var(--color-glow));
+}
+
+.atlas-node:hover .node-text--outer {
+  fill: var(--color-text);
+  font-size: 14px;
+}
+
+/* Center hover */
+.atlas-node--center {
+  cursor: default;
+}
+
+.atlas-node--center:hover .node-text-center {
+  filter: drop-shadow(0 0 18px var(--color-glow-warm));
+  fill: var(--color-text);
+  font-size: 19.5px;
+}
+
+.atlas-node--center:hover .center-circle-fill {
+  opacity: 0.5;
+}
+
+.atlas-node--center:hover .center-circle-stroke {
+  stroke: var(--color-accent);
+  opacity: 0.8;
+}
+
+/* Meta hover */
+.atlas-node--meta:hover .node-dot--meta {
+  r: 8;
+  opacity: 0.8;
+  fill: var(--color-warm-gray);
+  filter: drop-shadow(0 0 10px rgba(181, 175, 166, 0.3));
+}
+
+.atlas-node--meta:hover .node-text-meta {
+  fill: var(--color-text);
+  font-size: 14px;
+}
+
+/* ============================================ */
+/* TOPIC VIEWS — show/hide content sections    */
+/* ============================================ */
+
+.topic-view {
+  display: none;
+}
+
+.topic-view--active {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Scroll wrapper for tab content */
+.topic-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: var(--space-sm);
+}
+
+.topic-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.topic-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.topic-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-beige);
+  border-radius: 3px;
+}
+
+/* ============================================ */
+/* TOPIC TABS — typographic, no hard buttons   */
+/* ============================================ */
+
+.topic-tabs {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-beige);
+  padding-bottom: var(--space-xs);
+}
+
+.topic-tab {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--color-text-light);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0 0 var(--space-xs) 0;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: var(--transition-gentle);
+  margin-bottom: -1px;
+}
+
+.topic-tab:hover {
+  color: var(--color-text);
+}
+
+.topic-tab--active {
+  color: var(--color-text);
+  font-weight: 400;
+  border-bottom-color: var(--color-accent);
+}
+
+/* Tab content panels */
+.tab-content {
+  display: none;
+}
+
+.tab-content--active {
+  display: block;
+}
+
+/* ============================================ */
+/* BEZIEHUNGEN TAB (Accordion UI)               */
+/* ============================================ */
+
+.beziehungen-tab__leitsatz {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-bg-warm);
+}
+
+.accordion-group {
+  margin-bottom: var(--space-md);
+}
+
+.accordion-group-title {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-xs);
+  padding-left: var(--space-xs);
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--color-bg-warm);
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0.8rem var(--space-xs);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color var(--transition-gentle);
+}
+
+.accordion-header::after {
+  content: '+';
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--color-warm-gray);
+  transition: transform var(--transition-gentle);
+}
+
+.accordion-item.is-open .accordion-header::after {
+  transform: rotate(45deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1), padding var(--transition-gentle);
+  padding: 0 var(--space-xs);
+}
+
+.accordion-item.is-open .accordion-content {
+  max-height: 800px;
+  padding: 0 var(--space-xs) var(--space-sm) var(--space-xs);
+}
+
+.accordion-content p {
+  margin-bottom: var(--space-sm);
+  font-size: 0.85rem;
+  font-weight: 200;
+  line-height: 1.9;
+}
+
+.accordion-content p:last-child {
+  margin-bottom: 0;
+}
+
+.accordion-content strong {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* Individual relationship colors within the accordion */
+.accordion-group--genaehrt .accordion-group-title {
+  color: #C89B8E;
+  opacity: 0.85;
+}
+
+.accordion-group--genaehrt .accordion-header:hover,
+.accordion-group--genaehrt .accordion-item.is-open .accordion-header {
+  color: #C89B8E;
+}
+
+.accordion-group--stabilisiert .accordion-group-title {
+  color: #C4A96A;
+  opacity: 0.85;
+}
+
+.accordion-group--stabilisiert .accordion-header:hover,
+.accordion-group--stabilisiert .accordion-item.is-open .accordion-header {
+  color: #C4A96A;
+}
+
+.accordion-group--erkennbar .accordion-group-title {
+  color: #7A9DB8;
+  opacity: 0.85;
+}
+
+.accordion-group--erkennbar .accordion-header:hover,
+.accordion-group--erkennbar .accordion-item.is-open .accordion-header {
+  color: #7A9DB8;
+}
+
+.accordion-group--spuerbar .accordion-group-title {
+  color: #8BB89A;
+  opacity: 0.85;
+}
+
+.accordion-group--spuerbar .accordion-header:hover,
+.accordion-group--spuerbar .accordion-item.is-open .accordion-header {
+  color: #8BB89A;
+}
+
+/* Erlaubnis list */
+.erlaubnis-list {
+  list-style: none;
+  padding: 0;
+}
+
+.erlaubnis-list li {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 0.8em;
+  line-height: 1.8;
+}
+
+.erlaubnis-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--color-warm-gray);
+  font-size: 1.4em;
+  line-height: 1.3;
+}
+
+/* ============================================ */
+/* SVG ACTIVE & DIMMED STATES                  */
+/* ============================================ */
+
+/* When a topic is active, dim all other nodes and the identity frame */
+#atlas-svg.has-active .atlas-node,
+#atlas-svg.has-active .identity-frame {
+  opacity: 0.25;
+  transition: opacity var(--transition-gentle);
+}
+
+/* The active node stays fully visible */
+#atlas-svg.has-active .atlas-node.is-active,
+#atlas-svg.has-active .identity-frame.is-active {
+  opacity: 1;
+}
+
+/* Highlighted (connected) nodes stay fully visible too */
+#atlas-svg.has-active .atlas-node[class*="bezug-highlight--"],
+#atlas-svg.has-active-identity .atlas-node[class*="bezug-highlight--"],
+#atlas-svg.has-active .identity-frame.bezug-highlight--stabilisiert,
+#atlas-svg.has-active .identity-frame.bezug-highlight--erkennbar,
+#atlas-svg.has-active .identity-frame.bezug-highlight--spuerbar,
+#atlas-svg.has-active .identity-frame.bezug-highlight--genaehrt,
+#atlas-svg.has-active-identity .identity-frame.bezug-highlight--stabilisiert,
+#atlas-svg.has-active-identity .identity-frame.bezug-highlight--erkennbar,
+#atlas-svg.has-active-identity .identity-frame.bezug-highlight--spuerbar,
+#atlas-svg.has-active-identity .identity-frame.bezug-highlight--genaehrt {
+  opacity: 1 !important;
+}
+
+/* Active center — permanent highlight */
+#atlas-svg .atlas-node--center.is-active .node-text-center {
+  filter: drop-shadow(0 0 18px var(--color-glow-warm));
+  fill: var(--color-text);
+  font-size: 19.5px;
+}
+
+#atlas-svg .atlas-node--center.is-active .center-circle-fill {
+  opacity: 0.65;
+}
+
+#atlas-svg .atlas-node--center.is-active .center-circle-stroke {
+  stroke: var(--color-accent);
+  opacity: 0.9;
+}
+
+/* Active inner node */
+#atlas-svg .atlas-node.is-active .node-dot--inner {
+  r: 10;
+  opacity: 1;
+  fill: var(--color-accent);
+  filter: drop-shadow(0 0 15px var(--color-glow-warm));
+}
+
+#atlas-svg .atlas-node.is-active .node-text--inner {
+  fill: var(--color-text);
+  font-size: 14.5px;
+}
+
+/* Active outer node */
+#atlas-svg .atlas-node.is-active .node-dot--outer {
+  r: 10;
+  opacity: 1;
+  fill: var(--color-sage);
+  filter: drop-shadow(0 0 15px var(--color-glow));
+}
+
+#atlas-svg .atlas-node.is-active .node-text--outer {
+  fill: var(--color-text);
+  font-size: 14px;
+}
+
+/* Active meta node */
+#atlas-svg .atlas-node.is-active .node-dot--meta {
+  r: 8;
+  opacity: 1;
+  fill: var(--color-warm-gray);
+  filter: drop-shadow(0 0 12px rgba(181, 175, 166, 0.45));
+}
+
+#atlas-svg .atlas-node.is-active .node-text-meta {
+  fill: var(--color-text);
+  font-size: 14px;
+}
+
+/* Ring lines and structural elements stay prominent */
+/* (Dimming removed for permanence) */
+
+/* ============================================ */
+/* IDENTITÄT FRAME — outer atlas wrapper       */
+/* ============================================ */
+
+.identity-frame {
+  cursor: pointer;
+  outline: none;
+}
+
+.identity-frame__rect {
+  fill: none;
+  stroke: var(--color-warm-gray);
+  stroke-width: 1.3;
+  opacity: 0.65;
+  transition: opacity var(--transition-gentle), stroke-width var(--transition-gentle);
+}
+
+.identity-frame__label {
+  font-family: var(--font-body);
+  font-size: 13.5px; /* Unified from 14px to be closer to other meta text */
+  font-weight: 400;  /* Slightly stronger weight for readability */
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  fill: var(--color-sage);
+  text-anchor: middle;
+  opacity: 0.85;
+  transition: opacity var(--transition-gentle);
+}
+
+.identity-frame .node-dot {
+  transition: all var(--transition-calm);
+}
+
+/* Hover */
+.identity-frame:hover .identity-frame__rect {
+  opacity: 0.55;
+  stroke: var(--color-accent);
+  filter: drop-shadow(0 0 8px rgba(181, 175, 166, 0.15));
+}
+
+.identity-frame:hover .identity-frame__label {
+  opacity: 0.75;
+  fill: var(--color-text-muted);
+}
+
+.identity-frame:hover .node-dot {
+  r: 6;
+  opacity: 0.8;
+  fill: var(--color-warm-gray);
+  filter: drop-shadow(0 0 10px rgba(181, 175, 166, 0.3));
+}
+
+/* Active state */
+.identity-frame.is-active .identity-frame__rect {
+  opacity: 0.6;
+  stroke: var(--color-accent);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 12px rgba(181, 175, 166, 0.2));
+}
+
+.identity-frame.is-active .identity-frame__label {
+  opacity: 0.85;
+  fill: var(--color-text);
+}
+
+.identity-frame.is-active .node-dot {
+  r: 6;
+  opacity: 1;
+  fill: var(--color-warm-gray);
+  filter: drop-shadow(0 0 12px rgba(181, 175, 166, 0.45));
+}
+
+/* When identity is active, dim atlas nodes */
+#atlas-svg.has-active-identity .atlas-node {
+  opacity: 0.35;
+  transition: opacity var(--transition-gentle);
+}
+
+/* When another topic is active, dim the identity frame */
+#atlas-svg.has-active .identity-frame:not(.is-active) {
+  opacity: 0.25;
+  transition: opacity var(--transition-gentle);
+}
+
+/* Clickable cursor */
+.atlas-node[data-topic] {
+  cursor: pointer;
+}
+
+/* (Buttons and donation removed) */
+
+/* ============================================ */
+/* BEZIEHUNGSFÄDEN — relationship lines        */
+/* ============================================ */
+
+.beziehungsfaeden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-gentle);
+}
+
+.beziehungsfaeden--visible {
+  opacity: 1;
+}
+
+.bezug-group {
+  display: none;
+}
+
+.bezug-group.is-active {
+  display: block;
+}
+
+.bezug-line {
+  stroke-width: 1.5;
+  fill: none;
+}
+
+/* Relationship type colors */
+.bezug-stabilisiert {
+  stroke: #C4A96A;
+}
+
+.bezug-erkennbar {
+  stroke: #7A9DB8;
+}
+
+.bezug-spuerbar {
+  stroke: #8BB89A;
+}
+
+.bezug-genaehrt {
+  stroke: #C89B8E;
+}
+
+/* Legend */
+.bezug-legende__title {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  fill: var(--color-sage);
+  text-anchor: middle;
+  opacity: 0.85;
+}
+
+.bezug-legende__text {
+  font-family: var(--font-body);
+  font-size: 11px;
+  fill: var(--color-text-muted);
+  opacity: 0.85;
+}
+
+.bezug-legende__line {
+  stroke-width: 2;
+}
+
+/* Connected node highlights — dot + text take relationship color */
+
+/* Stabilisiert (Ocker) */
+.bezug-highlight--stabilisiert .node-dot {
+  fill: #C4A96A !important;
+  opacity: 1 !important;
+  r: 7 !important;
+  filter: drop-shadow(0 0 10px rgba(196, 169, 106, 0.6)) !important;
+}
+
+.bezug-highlight--stabilisiert .node-text--inner,
+.bezug-highlight--stabilisiert .node-text--outer,
+.bezug-highlight--stabilisiert .node-text-meta {
+  fill: #C4A96A !important;
+  opacity: 1 !important;
+}
+
+/* Erkennbar (Blau) */
+.bezug-highlight--erkennbar .node-dot {
+  fill: #7A9DB8 !important;
+  opacity: 1 !important;
+  r: 7 !important;
+  filter: drop-shadow(0 0 10px rgba(122, 157, 184, 0.6)) !important;
+}
+
+.bezug-highlight--erkennbar .node-text--inner,
+.bezug-highlight--erkennbar .node-text--outer,
+.bezug-highlight--erkennbar .node-text-meta {
+  fill: #7A9DB8 !important;
+  opacity: 1 !important;
+}
+
+/* Spürbar (Grün) */
+.bezug-highlight--spuerbar .node-dot {
+  fill: #8BB89A !important;
+  opacity: 1 !important;
+  r: 7 !important;
+  filter: drop-shadow(0 0 10px rgba(139, 184, 154, 0.6)) !important;
+}
+
+.bezug-highlight--spuerbar .node-text--inner,
+.bezug-highlight--spuerbar .node-text--outer,
+.bezug-highlight--spuerbar .node-text-meta {
+  fill: #8BB89A !important;
+  opacity: 1 !important;
+}
+
+/* Genährt (Rosé) */
+.bezug-highlight--genaehrt .node-dot {
+  fill: #C89B8E !important;
+  opacity: 1 !important;
+  r: 7 !important;
+  filter: drop-shadow(0 0 10px rgba(200, 155, 142, 0.6)) !important;
+}
+
+.bezug-highlight--genaehrt .node-text--inner,
+.bezug-highlight--genaehrt .node-text--outer,
+.bezug-highlight--genaehrt .node-text-meta {
+  fill: #C89B8E !important;
+  opacity: 1 !important;
+}
+
+/* Identity frame highlight - Stabilisiert */
+.identity-frame.bezug-highlight--stabilisiert .identity-frame__rect {
+  stroke: #C4A96A !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 12px rgba(196, 169, 106, 0.6)) !important;
+}
+
+.identity-frame.bezug-highlight--stabilisiert .identity-frame__label {
+  fill: #C4A96A !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 10px rgba(196, 169, 106, 0.6)) !important;
+}
+
+/* Identity frame highlight - Erkennbar */
+.identity-frame.bezug-highlight--erkennbar .identity-frame__rect {
+  stroke: #7A9DB8 !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 12px rgba(122, 157, 184, 0.6)) !important;
+}
+
+.identity-frame.bezug-highlight--erkennbar .identity-frame__label {
+  fill: #7A9DB8 !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 10px rgba(122, 157, 184, 0.6)) !important;
+}
+
+/* Identity frame highlight - Spuerbar */
+.identity-frame.bezug-highlight--spuerbar .identity-frame__rect {
+  stroke: #8BB89A !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 12px rgba(139, 184, 154, 0.6)) !important;
+}
+
+.identity-frame.bezug-highlight--spuerbar .identity-frame__label {
+  fill: #8BB89A !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 10px rgba(139, 184, 154, 0.6)) !important;
+}
+
+/* Identity frame highlight - Genährt */
+.identity-frame.bezug-highlight--genaehrt .identity-frame__rect {
+  stroke: #C89B8E !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 12px rgba(200, 155, 142, 0.6)) !important;
+}
+
+.identity-frame.bezug-highlight--genaehrt .identity-frame__label {
+  fill: #C89B8E !important;
+  opacity: 1 !important;
+  filter: drop-shadow(0 0 10px rgba(200, 155, 142, 0.6)) !important;
+}
+
+/* ============================================ */
+/* BACKGROUND SHAPES                           */
+/* ============================================ */
+
+.bg-shape {
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bg-shape--1 {
+  width: 600px;
+  height: 600px;
+  background: var(--color-sage);
+  top: -200px;
+  right: -200px;
+}
+
+.bg-shape--2 {
+  width: 400px;
+  height: 400px;
+  background: var(--color-beige);
+  bottom: -100px;
+  left: -100px;
+}
+
+.bg-shape--3 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-accent);
+  top: 40%;
+  left: -150px;
+}
+
+/* ============================================ */
+/* ANIMATIONS                                  */
+/* ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 1.2s var(--transition-calm) both;
+}
+
+.animate-in--delay-1 {
+  animation-delay: 0.2s;
+}
+
+.animate-in--delay-2 {
+  animation-delay: 0.5s;
+}
+
+.animate-in--delay-3 {
+  animation-delay: 0.8s;
+}
+
+/* ============================================ */
+/* RESPONSIVE                                  */
+/* ============================================ */
+
+@media (max-width: 1100px) {
+  .atlas-layout {
+    gap: var(--space-sm);
+  }
+
+  .text-column {
+    flex: 0 0 260px;
+  }
+}
+
+@media (max-width: 860px) {
+  .page {
+    height: auto;
+    overflow: auto;
+  }
+
+  .atlas-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .atlas {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .atlas svg {
+    max-height: none;
+  }
+
+  .text-column {
+    flex: none;
+    max-height: none;
+    overflow-y: visible;
+    padding-left: 0;
+    max-width: 600px;
+  }
+
+  .bottom-bar {
+    flex-wrap: wrap;
+  }
+}
+
+/* ============================================ */
+/* SITE HEADER / NAVIGATION                    */
+/* ============================================ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-beige);
+  padding: 0 var(--space-md);
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.site-nav__link {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: var(--color-text-light);
+  padding: var(--space-xs) 0;
+  border-bottom: 1.5px solid transparent;
+  transition: color var(--transition-gentle), border-color var(--transition-gentle);
+}
+
+.site-nav__link:hover {
+  color: var(--color-text);
+}
+
+.site-nav__link--active {
+  color: var(--color-text);
+  border-bottom-color: var(--color-warm-gray);
+}
+
+/* ============================================ */
+/* PLACEHOLDER PAGES                           */
+/* ============================================ */
+
+.page--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.placeholder-content {
+  text-align: center;
+}
+
+.placeholder-content__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 2.4rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.02em;
+}
+
+.placeholder-content__text {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+/* ================================================
+   Meta-Ebene & Achsen-Legende (Emotions-Atlas)
+   ================================================ */
+
+/* (Styles for .meta-separator and .meta-heading merged above) */
+
+/* Meta node dots */
+.node-dot--meta {
+  fill: var(--color-warm-gray);
+  opacity: 0.5;
+  transition: all var(--transition-calm);
+}
+
+/* Meta node text */
+.node-text-meta {
+  font-family: var(--font-body);
+  font-size: 12px;
+  fill: var(--color-text-muted);
+  text-anchor: middle;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  transition: all var(--transition-calm);
+}
+
+/* Meta node hover */
+.atlas-node--meta:hover .node-dot--meta {
+  opacity: 0.85;
+  r: 5;
+  fill: var(--color-text-muted);
+  filter: drop-shadow(0 0 6px rgba(181, 175, 166, 0.25));
+}
+
+.atlas-node--meta:hover .node-text-meta {
+  opacity: 0.9;
+  fill: var(--color-text);
+}
+
+/* Meta node active */
+.atlas-node--meta.is-active .node-dot--meta {
+  opacity: 1;
+  r: 8;
+  fill: var(--color-warm-gray);
+  filter: drop-shadow(0 0 8px rgba(181, 175, 166, 0.35));
+}
+
+.atlas-node--meta.is-active .node-text-meta {
+  opacity: 1;
+  fill: var(--color-text);
+  font-weight: 600;
+}
+
+/* Meta node dimmed */
+.atlas-node--meta.is-dimmed .node-dot--meta {
+  opacity: 0.15;
+}
+
+.atlas-node--meta.is-dimmed .node-text-meta {
+  opacity: 0.2;
+}
+
+/* Allow hover to override dimmed state */
+.atlas-node--meta.is-dimmed:hover .node-dot--meta {
+  opacity: 0.8;
+}
+
+.atlas-node--meta.is-dimmed:hover .node-text-meta {
+  opacity: 1;
+}
+
+/* --- Achsen-Legende --- */
+
+.achsen-legende__line {
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0.65;
+}
+
+.achsen-legende__text {
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  fill: var(--color-text-muted);
+  opacity: 0.75;
+}
+
+.achsen-legende__detail {
+  font-family: var(--font-body);
+  font-size: 9px;
+  letter-spacing: 0.03em;
+  fill: var(--color-warm-gray);
+  opacity: 0.55;
+}
+
+/* Achsen colors — warm, earthy, quiet */
+.achse-energie {
+  stroke: #C4943A;  /* warm amber / gold */
+}
+
+.achse-dichte {
+  stroke: #7A8B5C;  /* earthy olive / bronze-green */
+}
+
+.achse-richtung {
+  stroke: #4E7B8B;  /* cool petrol / blue */
+}
+
+/* ================================================
+   Emotions-Atlas — Active/Dimmed States
+   ================================================ */
+
+/* --- Structural dimming when any node is active --- */
+/* (Dimming for rings removed to keep them permanently visible) */
+
+#emotions-svg.has-active .meta-heading,
+#emotions-svg.has-active .meta-heading-rule,
+#emotions-svg.has-active .meta-separator {
+  opacity: 1; /* Keep prominent for all active states */
+}
+
+#emotions-svg.has-active .achsen-legende__line,
+#emotions-svg.has-active .achsen-legende__text,
+#emotions-svg.has-active .achsen-legende__detail {
+  opacity: 1; /* Keep prominent for all active states */
+}
+
+/* --- Outer ring: Active --- */
+.atlas-node.is-active .node-dot--outer {
+  opacity: 1;
+  r: 10;
+  fill: var(--color-sage);
+  filter: drop-shadow(0 0 8px rgba(74, 69, 64, 0.2));
+  transition: all var(--transition-calm);
+}
+
+.atlas-node.is-active .node-text--outer {
+  opacity: 1;
+  fill: var(--color-text);
+  font-weight: 600;
+  transition: all var(--transition-calm);
+}
+
+/* --- Outer ring: Dimmed --- */
+.atlas-node.is-dimmed .node-dot--outer {
+  opacity: 0.18;
+  transition: all var(--transition-calm);
+}
+
+.atlas-node.is-dimmed .node-text--outer {
+  opacity: 0.2;
+  transition: all var(--transition-calm);
+}
+
+/* Allow hover to override dimmed state */
+.atlas-node.is-dimmed:hover .node-dot--outer {
+  opacity: 0.65;
+}
+
+.atlas-node.is-dimmed:hover .node-text--outer {
+  opacity: 1;
+}
+
+/* --- Inner ring: Active (default, overridden by axis colors below) --- */
+.atlas-node.is-active .node-dot--inner {
+  opacity: 1;
+  r: 10;
+  fill: var(--color-text);
+  filter: drop-shadow(0 0 8px rgba(74, 69, 64, 0.2));
+  transition: all var(--transition-calm);
+}
+
+.atlas-node.is-active .node-text--inner {
+  opacity: 1;
+  fill: var(--color-text);
+  font-weight: 600;
+  transition: all var(--transition-calm);
+}
+
+/* --- Inner ring: Dimmed --- */
+.atlas-node.is-dimmed .node-dot--inner {
+  opacity: 0.18;
+  transition: all var(--transition-calm);
+}
+
+.atlas-node.is-dimmed .node-text--inner {
+  opacity: 0.2;
+  transition: all var(--transition-calm);
+}
+
+/* Allow hover to override dimmed state */
+.atlas-node.is-dimmed:hover .node-dot--inner {
+  opacity: 0.7;
+}
+
+.atlas-node.is-dimmed:hover .node-text--inner {
+  opacity: 1;
+}
+
+/* --- Center: Active --- */
+.atlas-node--center.is-active .center-circle-fill {
+  opacity: 1;
+  filter: drop-shadow(0 0 12px rgba(212, 197, 176, 0.3));
+  transition: all var(--transition-calm);
+}
+
+.atlas-node--center.is-active .node-text-center {
+  opacity: 1;
+  fill: var(--color-text);
+  transition: all var(--transition-calm);
+}
+
+.atlas-node--center.is-active .node-dot--inner {
+  fill: var(--color-accent); /* Keep warm-beige instead of turning black */
+  opacity: 1;
+}
+
+/* --- Center: Dimmed --- */
+.atlas-node--center.is-dimmed .center-circle-fill {
+  opacity: 0.35;
+  transition: all var(--transition-calm);
+}
+
+.atlas-node--center.is-dimmed .center-circle-stroke {
+  opacity: 0.25;
+  transition: all var(--transition-calm);
+}
+
+.atlas-node--center.is-dimmed .node-text-center {
+  opacity: 0.25;
+  transition: all var(--transition-calm);
+}
+
+.atlas-node--center.is-dimmed .node-dot--inner {
+  opacity: 0.2;
+  transition: all var(--transition-calm);
+}
+
+/* Allow hover to override dimmed state for center */
+.atlas-node--center.is-dimmed:hover .center-circle-fill {
+  opacity: 0.5;
+}
+
+.atlas-node--center.is-dimmed:hover .center-circle-stroke {
+  opacity: 0.8;
+}
+
+.atlas-node--center.is-dimmed:hover .node-text-center {
+  opacity: 1;
+}
+
+.atlas-node--center.is-dimmed:hover .node-dot--inner {
+  opacity: 1;
+}
+
+/* ================================================
+   Axis-Colored Highlights for Grund-Bewegungen
+   ================================================ */
+
+/* Energie axis: warm amber */
+.atlas-node[data-axis="energie"].is-active .node-dot--inner {
+  fill: #C4943A;
+  filter: drop-shadow(0 0 10px rgba(196, 148, 58, 0.35));
+}
+
+.atlas-node[data-axis="energie"].is-active .node-text--inner {
+  fill: #A07830;
+}
+
+/* Dichte axis: earthy olive */
+.atlas-node[data-axis="dichte"].is-active .node-dot--inner {
+  fill: #7A8B5C;
+  filter: drop-shadow(0 0 10px rgba(122, 139, 92, 0.35));
+}
+
+.atlas-node[data-axis="dichte"].is-active .node-text--inner {
+  fill: #65763E;
+}
+
+/* Richtung axis: cool petrol */
+.atlas-node[data-axis="richtung"].is-active .node-dot--inner {
+  fill: #4E7B8B;
+  filter: drop-shadow(0 0 10px rgba(78, 123, 139, 0.35));
+}
+
+.atlas-node[data-axis="richtung"].is-active .node-text--inner {
+  fill: #3E6573;
+}
+
+/* --- Counter-pole: soft highlight --- */
+.atlas-node.is-counter-pole .node-dot--inner {
+  opacity: 0.7;
+  r: 6;
+  transition: all var(--transition-calm);
+}
+
+.atlas-node.is-counter-pole .node-text--inner {
+  opacity: 0.6;
+  transition: all var(--transition-calm);
+}
+
+/* Counter-pole axis colors (softer) */
+.atlas-node[data-axis="energie"].is-counter-pole .node-dot--inner {
+  fill: #C4943A;
+  opacity: 0.55;
+  filter: drop-shadow(0 0 6px rgba(196, 148, 58, 0.2));
+}
+
+.atlas-node[data-axis="energie"].is-counter-pole .node-text--inner {
+  fill: #A07830;
+  opacity: 0.5;
+}
+
+.atlas-node[data-axis="dichte"].is-counter-pole .node-dot--inner {
+  fill: #7A8B5C;
+  opacity: 0.55;
+  filter: drop-shadow(0 0 6px rgba(122, 139, 92, 0.2));
+}
+
+.atlas-node[data-axis="dichte"].is-counter-pole .node-text--inner {
+  fill: #65763E;
+  opacity: 0.5;
+}
+
+.atlas-node[data-axis="richtung"].is-counter-pole .node-dot--inner {
+  fill: #4E7B8B;
+  opacity: 0.55;
+  filter: drop-shadow(0 0 6px rgba(78, 123, 139, 0.2));
+}
+
+.atlas-node[data-axis="richtung"].is-counter-pole .node-text--inner {
+  fill: #3E6573;
+  opacity: 0.5;
+}
+
+/* ================================================
+   Axis-Colored Section Titles in Polarität Tab
+   ================================================ */
+
+.subtitle--energie {
+  color: #C4943A !important;
+}
+
+.subtitle--dichte {
+  color: #7A8B5C !important;
+}
+
+.subtitle--richtung {
+  color: #4E7B8B !important;
+}
+
+/* ================================================
+   LEBENDIGE BILDER — Gesamtbild Page
+   ================================================ */
+
+/* --- Bilder Area (left column) --- */
+.bilder-area {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-md);
+}
+
+/* --- Mosaic Grid (6-column staggered) --- */
+.bilder-mosaic {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto auto;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  transition: opacity var(--transition-calm);
+}
+
+/* Top row: 3 cards spanning 2 columns each */
+.bilder-card:nth-child(1) { grid-column: 1 / 3; }
+.bilder-card:nth-child(2) { grid-column: 3 / 5; }
+.bilder-card:nth-child(3) { grid-column: 5 / 7; }
+
+/* Bottom row: 2 cards offset, sitting between top cards */
+.bilder-card:nth-child(4) { grid-column: 2 / 4; }
+.bilder-card:nth-child(5) { grid-column: 4 / 6; }
+
+/* --- Card --- */
+.bilder-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-calm);
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bilder-card:hover .bilder-card__placeholder {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+.bilder-card:hover .bilder-card__title {
+  opacity: 1;
+}
+
+/* --- Card Title --- */
+.bilder-card__title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+  padding: var(--space-xs) 0;
+  transition: opacity var(--transition-gentle);
+  opacity: 0.85;
+  z-index: 1;
+}
+
+/* --- Image Placeholder --- */
+.bilder-card__image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bilder-card__placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-warm) 0%,
+    var(--color-beige) 35%,
+    var(--color-sage-light) 70%,
+    rgba(168, 181, 160, 0.25) 100%
+  );
+  opacity: 0.55;
+  transition: all var(--transition-calm);
+  transform: scale(1);
+}
+
+/* --- Mini-List (hidden for now) --- */
+.bilder-card__links {
+  display: none;
+}
+
+/* --- Real Image --- */
+.bilder-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all var(--transition-calm);
+}
+
+/* --- Caption (hidden by default, shown only in detail view) --- */
+.bilder-card__caption {
+  display: none;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 200;
+  color: var(--color-text-faint);
+  letter-spacing: 0.04em;
+  line-height: 1.8;
+  text-align: center;
+  padding: var(--space-xs) var(--space-sm);
+}
+
+/* ================================================
+   PERSPEKTIVE PANELS — soft accordion
+   ================================================ */
+
+.perspektive-panel {
+  margin-bottom: var(--space-xs);
+}
+
+.perspektive-panel__header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-sm) var(--space-xs);
+  border-radius: 8px;
+  transition: all var(--transition-gentle);
+}
+
+.perspektive-panel__header:hover {
+  background: rgba(232, 224, 213, 0.2);
+}
+
+/* Chevron — rotates on open */
+.perspektive-panel__chevron {
+  font-size: 0.65rem;
+  color: var(--color-text-faint);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              color var(--transition-gentle);
+  flex-shrink: 0;
+  display: inline-block;
+  transform: rotate(0deg);
+}
+
+.perspektive-panel.is-open .perspektive-panel__chevron {
+  transform: rotate(90deg);
+  color: var(--color-text-light);
+}
+
+.perspektive-panel__header:hover .perspektive-panel__chevron {
+  color: var(--color-text-light);
+}
+
+.perspektive-panel__symbol {
+  font-size: 1rem;
+  opacity: 0.6;
+  transition: opacity var(--transition-gentle);
+  flex-shrink: 0;
+}
+
+.perspektive-panel__title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--color-text-light);
+  letter-spacing: 0.03em;
+  transition: color var(--transition-gentle);
+}
+
+.perspektive-panel__header:hover .perspektive-panel__title {
+  color: var(--color-text);
+}
+
+.perspektive-panel__header:hover .perspektive-panel__symbol {
+  opacity: 0.9;
+}
+
+/* Active / open state */
+.perspektive-panel.is-open .perspektive-panel__header {
+  background: rgba(232, 224, 213, 0.12);
+}
+
+.perspektive-panel.is-open .perspektive-panel__title {
+  color: var(--color-text);
+}
+
+.perspektive-panel.is-open .perspektive-panel__symbol {
+  opacity: 1;
+}
+
+/* Body — collapsed by default, smooth expand */
+.perspektive-panel__body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity 0.4s ease,
+              padding 0.4s ease;
+  padding-left: 2.2rem;
+  padding-right: var(--space-xs);
+  border-left: 2px solid transparent;
+  margin-left: 0.65rem;
+}
+
+.perspektive-panel.is-open .perspektive-panel__body {
+  max-height: 3000px;
+  opacity: 1;
+  overflow: visible;
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-md);
+  border-left-color: rgba(200, 188, 172, 0.3);
+}
+
+/* Typography inside panels */
+.perspektive-panel__body p {
+  line-height: 1.9;
+  margin-bottom: 1.1em;
+  font-size: 0.88rem;
+}
+
+.perspektive-panel__body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ================================================
+   DETAIL VIEW — full-area single image
+   ================================================ */
+
+/* When active: hide all non-active cards completely */
+.bilder-area.has-active .bilder-mosaic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bilder-area.has-active .bilder-card.is-dimmed {
+  display: none;
+}
+
+/* Active card expands to fill the area */
+.bilder-area.has-active .bilder-card.is-active {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  cursor: default;
+}
+
+.bilder-area.has-active .bilder-card.is-active .bilder-card__title {
+  font-size: 1.1rem;
+  opacity: 1;
+  padding: var(--space-sm) 0;
+}
+
+.bilder-area.has-active .bilder-card.is-active .bilder-card__placeholder {
+  opacity: 0.75;
+}
+
+.bilder-area.has-active .bilder-card.is-active .bilder-card__image {
+  border-radius: 12px;
+  aspect-ratio: auto;
+  flex: 1;
+}
+
+/* Show caption in detail view */
+.bilder-area.has-active .bilder-card.is-active .bilder-card__caption {
+  display: block;
+}
+
+/* --- Back Button --- */
+.bilder-back {
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-sm);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(232, 224, 213, 0.35);
+  color: var(--color-text-light);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-6px);
+  transition: all var(--transition-gentle);
+}
+
+.bilder-back.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.bilder-back:hover {
+  background: rgba(232, 224, 213, 0.65);
+  color: var(--color-text);
+}
+
+/* ================================================
+   STARTSEITE (INDEX.HTML)
+   ================================================ */
+
+.hero {
+  position: relative;
+  height: 75vh;
+  min-height: 500px;
+  background-image: url('images/hero.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Move content to the left */
+  padding-left: 12vw; /* Generous breathing room from the left edge */
+}
+
+/* The upper darkening gradient is completely removed to let the sky breathe naturally */
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, var(--color-bg) 0%, rgba(250, 248, 245, 0) 100%);
+  pointer-events: none;
+}
+
+.hero__text {
+  position: relative;
+  z-index: 10;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  line-height: 2; /* generous line spacing */
+  /* Soft, warm dark grey / brown-grey */
+  color: #4A423A;
+  text-align: left;
+  font-weight: 300;
+  padding: 0;
+  background: none;
+  /* Extremely subtle, soft bright shadow to gently lift text without looking like a glow */
+  text-shadow: 0 0 35px rgba(255, 250, 245, 0.4);
+  /* A smaller vertical shift so it sits a bit lower, more deeply in the sky */
+  margin-top: -5vh; 
+  max-width: 45vw;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    justify-content: center;
+    align-items: flex-end;
+    padding-left: 0;
+    padding-bottom: 0;
+    overflow: visible;
+  }
+  
+  .hero__text {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    text-align: center;
+    max-width: 80vw;
+    margin-top: 0;
+    margin-bottom: -4rem;
+    /* Subtle shadow — the misty area provides natural contrast */
+    text-shadow: 0 0 20px rgba(250, 248, 245, 0.5);
+  }
+}
+
+.home-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .hero + .home-section {
+    padding-top: 7rem;
+  }
+}
+
+.home-section__title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--color-text-faint);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.home-section__content {
+  font-family: var(--font-display);
+  font-size: 1.35rem; /* larger, quieter aesthetic for the start page */
+  line-height: 1.9;
+  color: var(--color-text-light);
+}
+
+.home-section__content p {
+  margin-bottom: 2.5rem;
+}
+
+.home-section__content p:last-child {
+  margin-bottom: 0;
+}
+
+.home-rooms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .home-rooms {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.home-room {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  transition: background-color var(--transition-gentle), transform var(--transition-gentle);
+  cursor: pointer;
+  text-align: center;
+}
+
+.home-room:hover {
+  background-color: rgba(200, 188, 172, 0.12); /* Very subtle warm background */
+  transform: translateY(-2px);
+}
+
+.home-room__title {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--color-text);
+  font-weight: 300;
+  margin-bottom: 0.8rem;
+  transition: color var(--transition-gentle);
+}
+
+.home-room:hover .home-room__title {
+  color: var(--color-text); /* Keeps it extremely quiet */
+}
+
+.home-room__desc {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  font-weight: 300;
+  flex-grow: 1; /* Pushes arrow to the bottom if lines vary */
+}
+
+.home-room__arrow {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: var(--color-text-light);
+  opacity: 0.55; /* Higher opacity to be clearly visible */
+  transition: opacity var(--transition-gentle), transform var(--transition-gentle);
+}
+
+.home-room:hover .home-room__arrow {
+  opacity: 0.9;
+  transform: translateX(5px);
+  color: var(--color-text);
+}
+
+/* ================================================
+   UNTERSTÜTZEN PAGE (SUPPORT)
+   ================================================ */
+
+.support-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md) 8rem;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 5rem;
+  margin-top: 2rem; /* Reduced from 3rem to move content higher */
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .support-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.support-title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--color-text);
+  margin-top: 0.5rem; /* Moves title higher up */
+  margin-bottom: 1rem;
+}
+
+.support-text {
+  font-family: var(--font-display);
+  font-size: 1.15rem; /* Reduced from 1.35rem to make text smaller */
+  line-height: 1.8;
+  color: var(--color-text-light);
+  font-weight: 300;
+}
+
+.support-text p {
+  margin-bottom: 1.8rem; /* Reduced from 2.5rem */
+}
+
+.support-text p:last-child {
+  margin-bottom: 0;
+}
+
+.support-widget {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden; /* Gently round the iframe corners */
+  opacity: 0.95;
+  transition: opacity var(--transition-gentle);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03); /* Extremely soft shadow for visual nesting, rather than hard box border */
+}
+
+.support-widget:hover {
+  opacity: 1;
+}
+
+.support-widget iframe {
+  border-radius: 12px;
+  display: block;
+}
+
+/* ================================================
+   SCHUTZ PAGE (WENN BEWEGUNG AUF SCHUTZ TRIFFT)
+   ================================================ */
+
+.schutz-hero {
+  margin-bottom: 2.5rem;
+}
+
+.schutz-hero__image {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); /* Full viewport width breakout */
+  height: 45vh;
+  min-height: 300px;
+  background-image: url('images/hero.png'); 
+  background-size: cover;
+  background-position: center;
+}
+
+.schutz-hero__text {
+  max-width: 800px;
+  margin: 2.5rem auto 0;
+  text-align: center;
+  padding: 0 var(--space-md);
+}
+
+.schutz-hero__sentence {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-text-light);
+  letter-spacing: 0.03em;
+}
+
+.schutz-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem var(--space-md) 8rem;
+}
+
+/* Dropdown Selector — sticky */
+.schutz-selector-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: sticky;
+  top: var(--header-height);
+  z-index: 50;
+  background-color: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.2rem var(--space-md);
+  margin-left: calc(-1 * var(--space-md));
+  margin-right: calc(-1 * var(--space-md));
+  transition: box-shadow 0.3s ease;
+}
+
+.schutz-selector-section.is-stuck {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Sanfter Einstieg — collapsible */
+.schutz-einstieg {
+  max-width: 650px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.schutz-einstieg__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-gentle);
+}
+
+.schutz-einstieg__toggle:hover {
+  border-bottom-color: var(--color-beige-strong);
+}
+
+.schutz-einstieg__title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--color-text-faint);
+  letter-spacing: 0.04em;
+}
+
+.schutz-einstieg__arrow {
+  font-size: 1.2rem;
+  color: var(--color-text-faint);
+  transition: transform var(--transition-gentle);
+  display: inline-block;
+}
+
+.schutz-einstieg__toggle[aria-expanded="true"] .schutz-einstieg__arrow {
+  transform: rotate(90deg);
+}
+
+.schutz-einstieg__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s ease;
+  opacity: 0;
+}
+
+.schutz-einstieg__content.is-open {
+  opacity: 1;
+}
+
+.schutz-einstieg__text {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: var(--color-text-light);
+  padding: 2.5rem 0 1rem;
+}
+
+.schutz-einstieg__text p {
+  margin-bottom: 1.8rem;
+}
+
+.schutz-selector__label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-text-faint);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.quiet-select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.quiet-select {
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-warm-gray);
+  padding: 0.5rem 3rem 0.5rem 1.5rem;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-text);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition-gentle), color var(--transition-gentle);
+}
+
+.quiet-select:hover, .quiet-select:focus {
+  border-bottom-color: var(--color-accent);
+}
+
+.quiet-select-wrapper::after {
+  content: '↓';
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-body);
+  font-size: 1.4rem;
+  color: var(--color-warm-gray);
+  pointer-events: none;
+}
+
+/* Dynamic Sections */
+.schutz-section {
+  margin-bottom: 7rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.schutz-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.schutz-section-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--color-text);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+}
+
+@media (max-width: 800px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.comparison-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(200, 188, 172, 0.4);
+}
+
+.comparison-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 1.2rem;
+}
+
+.comparison-content {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: var(--color-text-light);
+}
+
+.comparison-content p {
+  margin-bottom: 1.5rem;
+}
+
+.comparison-content ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1.5rem;
+  list-style-type: disc;
+}
+
+.comparison-content li {
+  margin-bottom: 0.6rem;
+}
+
+/* Section Modifiers */
+.schutz-section--center {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.schutz-section--narrow {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.schutz-section-text {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+.schutz-section-text p {
+  margin-bottom: 1.8rem;
+}
+
+/* ================================================
+   HAMBURGER MENU
+   ================================================ */
+
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 200;
+  position: relative;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background-color: var(--color-text-light);
+  margin: 5px 0;
+  transition: var(--transition-gentle);
+  border-radius: 2px;
+}
+
+.hamburger-btn.is-open {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+}
+
+.hamburger-btn.is-open span:nth-child(1) {
+  transform: rotate(45deg) translate(4.5px, 4.5px);
+}
+.hamburger-btn.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-btn.is-open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4.5px, -4.5px);
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-text-light);
+  cursor: pointer;
+  padding: 8px;
+  line-height: 1;
+  transition: color var(--transition-gentle);
+}
+
+.mobile-nav-close:hover {
+  color: var(--color-text);
+}
+
+.mobile-nav-overlay {
+  display: none;
+}
+
+/* ================================================
+   ATLAS INVITATIONS (differentiated by breakpoint)
+   ================================================ */
+
+.atlas-invitation {
+  display: none;
+}
+
+/* ================================================
+   RESPONSIVE — TABLET / SMALL DESKTOP (max-width: 1100px)
+   Navigation + Atlas invitation
+   ================================================ */
+
+@media (max-width: 1100px) {
+
+  /* --- Hamburger visible --- */
+  .hamburger-btn {
+    display: block;
+  }
+
+  .site-header {
+    justify-content: flex-end;
+    padding: 0 var(--space-sm);
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  /* --- Mobile Navigation Overlay --- */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background-color: rgba(250, 248, 245, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .mobile-nav-overlay.is-open {
+    display: flex;
+    opacity: 1;
+  }
+
+  .mobile-nav-overlay a {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--color-text-light);
+    padding: 0.5rem 1rem;
+    transition: color var(--transition-gentle);
+    text-align: center;
+  }
+
+  .mobile-nav-overlay a:hover,
+  .mobile-nav-overlay a.site-nav__link--active {
+    color: var(--color-text);
+  }
+
+  .mobile-nav-overlay a.site-nav__link--active {
+    border-bottom: 1.5px solid var(--color-warm-gray);
+    padding-bottom: 0.3rem;
+  }
+
+  /* --- Page layout adjustments --- */
+  .page {
+    height: auto;
+    min-height: calc(100vh - var(--header-height));
+    overflow: visible;
+    padding: var(--space-sm);
+  }
+
+  /* --- Atlas layout (Bewusstseins-Atlas) --- */
+  .atlas-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .atlas {
+    display: none;
+  }
+
+  .text-column {
+    flex: none;
+    width: 100%;
+    max-height: none;
+    padding: var(--space-sm);
+  }
+
+  /* --- Atlas Invitation (shared styles) --- */
+  .atlas-invitation {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-lg) var(--space-md);
+    min-height: 40vh;
+  }
+
+  /* Show desktop variant (769px–1100px) */
+  .atlas-invitation--desktop {
+    display: flex;
+  }
+
+  .atlas-invitation--mobile {
+    display: none;
+  }
+
+  .mobile-atlas-invitation__icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+    opacity: 0.5;
+  }
+
+  .mobile-atlas-invitation__title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+    line-height: 1.4;
+  }
+
+  .mobile-atlas-invitation__text {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--color-text-light);
+    max-width: 420px;
+  }
+
+  .mobile-atlas-invitation__text p {
+    margin-bottom: 1rem;
+  }
+
+  /* --- Emotions Atlas (emotions.html) --- */
+  .emotions-atlas {
+    display: none;
+  }
+
+  .emotions-text-column {
+    flex: none;
+    width: 100%;
+    max-height: none;
+    padding: var(--space-sm);
+  }
+}
+
+/* ================================================
+   RESPONSIVE — MOBILE (max-width: 768px)
+   Mobile-specific layout refinements
+   ================================================ */
+
+@media (max-width: 768px) {
+
+  /* Switch to mobile invitation variant */
+  .atlas-invitation--desktop {
+    display: none;
+  }
+
+  .atlas-invitation--mobile {
+    display: flex;
+  }
+
+  /* --- Startseite (index.html) --- */
+  .hero {
+    min-height: 50vh;
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+
+  .intro {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .intro__text {
+    font-size: 1.05rem;
+  }
+
+  /* --- Unterstützen --- */
+  .support-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-lg);
+  }
+
+  .support-title {
+    font-size: 2rem;
+  }
+
+  .support-page {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  /* --- Schutz-Seite --- */
+  .schutz-hero__image {
+    height: 30vh;
+    min-height: 200px;
+  }
+
+  .schutz-hero {
+    margin-bottom: 2rem;
+  }
+
+  .schutz-page-title {
+    font-size: 1.8rem;
+  }
+
+  .schutz-content {
+    padding: 0 var(--space-sm);
+  }
+
+  .schutz-container {
+    padding: 1rem var(--space-sm) 4rem;
+  }
+
+  .schutz-selector-section {
+    margin-bottom: 4rem;
+  }
+
+  /* --- Gesamtbild --- */
+  .gesamtbild-hero {
+    min-height: 30vh;
+  }
+
+  /* --- Du darfst wählen --- */
+  .variante-content {
+    padding: var(--space-sm);
+  }
+}
+
+/* ================================================
+   FOOTER
+   ================================================ */
+
+.site-footer {
+  text-align: center;
+  padding: 3rem var(--space-md) 2rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.site-footer a {
+  color: var(--color-text-faint);
+  text-decoration: none;
+  transition: color var(--transition-gentle);
+}
+
+.site-footer a:hover {
+  color: var(--color-text-light);
+}
+
+.site-footer__sep {
+  color: var(--color-text-faint);
+  margin: 0 0.6rem;
+  opacity: 0.5;
+}
+
+/* ================================================
+   LEGAL PAGES (Impressum, Datenschutz)
+   ================================================ */
+
+.legal-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 6rem var(--space-md) 4rem;
+}
+
+.legal-page__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+}
+
+.legal-page__content {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
